@@ -1,4 +1,11 @@
-:root {
+
+@media print {
+  .no-print, .no-print * {
+    display: none !important
+  }
+}
+
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -39,4 +46,4 @@ a {
   html {
     color-scheme: dark;
   }
-}
+} */
