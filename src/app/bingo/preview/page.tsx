@@ -6,9 +6,8 @@ import Button from "@mui/material/Button"
 import { useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import styles from "./page.module.css"
-import { Col, Container, Row } from "react-bootstrap";
 import Stack from "@mui/material/Stack"
-import { Edit, Gamepad, Games, PlayCircle, Print, Refresh, Share } from "@mui/icons-material"
+import { Edit, PlayCircle, Print, Refresh, Share } from "@mui/icons-material"
 
 export default function Page(){
 
