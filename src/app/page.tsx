@@ -1,7 +1,14 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import { useEffect } from "react";
+import { bingoHome } from "@/utility/bingo/navigation";
 
 export default function Home() {
+
+  useEffect( () => {
+    window.location.href = bingoHome()
+  })
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
