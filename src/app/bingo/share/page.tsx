@@ -1,11 +1,12 @@
+'use client'
+
 import { createBingoCard, updateBingoCard } from "@/utility/bingo/bingo_storage";
+import { previewCard } from "@/utility/bingo/navigation";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-
 export default function Share(){
     const searchParams = useSearchParams()
-    const [ seed, setSeed ] = useState(0);
 
     useEffect( () => {
 
@@ -13,8 +14,10 @@ export default function Share(){
 
         const seed = searchParams.get("seed") ?? ""+(Math.random()*10000)
 
-        const data = searchParams.get("data") ?? "";
+        const data = searchParams.get("values") ?? "";
         const values = data.split("\n")
+
+        console.log(values)
 
         const id = createBingoCard();
 
@@ -25,7 +28,7 @@ export default function Share(){
         })
 
         //redirect
-        window.location.href = `/bingo/preview?id=${id}&seed=${seed}`
+        window.location.href = previewCard(id,seed)
 
     }, [])
 }
