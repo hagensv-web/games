@@ -1,6 +1,7 @@
 'use client'
 
 import { BingoCard, createBingoCard, getBingoCard, updateBingoCard } from "@/utility/bingo/bingo_storage";
+import { previewCard } from "@/utility/bingo/navigation";
 import { Delete } from "@mui/icons-material";
 import { IconButton, InputAdornment, OutlinedInput, TextField } from "@mui/material";
 import Button from "@mui/material/Button";
@@ -134,7 +135,7 @@ export default function CreateBingo(){
           return;
         }
 
-        window.location.href = `/bingo/preview?${params.toString()}`
+        window.location.href = previewCard(id)
       }}>
       Generate
       </Button>
