@@ -30,7 +30,7 @@ export default function BingoCard({ values, seed }: Props){
     
     function getValue(row: Number, col: Number){
         if (row === 2 && col === 2){
-            return "Free"
+            return <strong>Free</strong>
         }
         const idx = rng.next(0,values2.length);
         return values2.splice(idx,1);
