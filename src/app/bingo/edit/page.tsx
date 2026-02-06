@@ -1,7 +1,7 @@
 'use client'
 
 import { BingoCard, createBingoCard, getBingoCard, updateBingoCard } from "@/utility/bingo/bingo_storage";
-import { previewCard } from "@/utility/bingo/navigation";
+import { editCard, previewCard } from "@/utility/bingo/navigation";
 import { Delete } from "@mui/icons-material";
 import { IconButton, InputAdornment, OutlinedInput, TextField } from "@mui/material";
 import Button from "@mui/material/Button";
@@ -21,13 +21,11 @@ export default function CreateBingo(){
       const currentId = searchParams.get("card")
       if (currentId === null || currentId === ""){
         //Generate new id
-        const newid = createBingoCard();
-        window.location.href = "/bingo/create?card="+newid
+        window.location.href = editCard(createBingoCard())
         return;
       }
 
       setId(currentId)
-
       const card = getBingoCard(currentId)
 
       if (card !== null){
