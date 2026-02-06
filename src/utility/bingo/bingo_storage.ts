@@ -38,7 +38,11 @@ function updateBingoIds(ids: string[]){
 export function getBingoCard(cardId: string){
     const storage = localStorage.getItem("Bingo Card "+cardId)
     if (storage === null){
-        return null
+        return {
+            id: cardId,
+            name: "",
+            values: []
+        }
     }
     return JSON.parse(storage) as BingoCard
 }
