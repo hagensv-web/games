@@ -1,5 +1,3 @@
-
-
 export type BingoCard = {
     id: string
     name: string
