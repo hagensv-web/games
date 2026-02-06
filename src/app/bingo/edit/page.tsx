@@ -1,14 +1,55 @@
 'use client'
 
+import { BingoCard, createBingoCard, getBingoCard, updateBingoCard } from "@/utility/bingo/bingo_storage";
 import { Delete } from "@mui/icons-material";
-import { Icon, IconButton, InputAdornment, OutlinedInput, TextField } from "@mui/material";
+import { IconButton, InputAdornment, OutlinedInput, TextField } from "@mui/material";
 import Button from "@mui/material/Button";
-import { useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function CreateBingo(){
+
+    const searchParams = useSearchParams();
+    const [loaded, setLoaded] = useState(false)
+    const [id, setId] = useState("")
     const [name, setName] = useState("")
     const [values, setValues] = useState([""])
+
+    //Load bingo card
+    useEffect( () => {
+      const currentId = searchParams.get("card")
+      if (currentId === null || currentId === ""){
+        //Generate new id
+        const newid = createBingoCard();
+        window.location.href = "/bingo/create?card="+newid
+        return;
+      }
+
+      setId(currentId)
+
+      const card = getBingoCard(currentId)
+
+      if (card !== null){
+        setName(card.name)
+        setValues(card.values)
+      }
+
+      setLoaded(true)
+    }, [])
+
+
+    //Save bingo card
+    useEffect( () => {
+      if (!loaded) return;
+
+      const card: BingoCard = {
+        id,
+        name,
+        values: values.filter( v => v.trim() !== "")
+      }
+
+      updateBingoCard(card)
+    }, [name, values] );
 
     const handleValueChange = (index: number, value: string) => {
         const newValues = [...values];
@@ -27,7 +68,6 @@ export default function CreateBingo(){
     };
 
     const enteredValues = values.filter(v => v.trim() !== "");
-
 
     return <div style={{ maxWidth: 500, margin: "40px auto", fontFamily: "sans-serif" }}>
       <h2>Bingo Card Generator</h2>
@@ -87,8 +127,7 @@ export default function CreateBingo(){
       variant="contained"
       onClick={() => {
         const params = new URLSearchParams({
-          name,
-          data: enteredValues.join("\n")
+          card: id,
         })
 
         if (enteredValues.length < 24){
