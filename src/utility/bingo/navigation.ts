@@ -1,6 +1,6 @@
 import { getBingoCard } from "./bingo_storage"
 
-const basePath = "/bingo"
+const basePath = "/games/bingo"
 
 export function bingoHome(){
     return `${basePath}/`
