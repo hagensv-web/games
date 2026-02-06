@@ -3,7 +3,7 @@ import { getBingoCard } from "./bingo_storage"
 const basePath = "/games/bingo"
 
 export function bingoHome(){
-    return `${basePath}/`
+    return `${basePath}`
 }
 
 export function editCard(id: string){
