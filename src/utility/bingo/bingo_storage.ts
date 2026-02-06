@@ -21,6 +21,9 @@ export function createBingoCard(){
 
 export function deleteBingoCard(cardId: string){
     localStorage.removeItem("Bingo Card "+cardId)
+    const cardIds = getCardIds();
+    const removeIdx = cardIds.indexOf(cardId);
+    cardIds.splice(removeIdx, 1)
 }
 
 export function getCardIds(): string[] {
