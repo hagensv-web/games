@@ -32,7 +32,7 @@ export default function CreateBingo(){
 
       if (card !== null){
         setName(card.name)
-        setValues(card.values)
+        setValues([...card.values,""])
       }
 
       setLoaded(true)
