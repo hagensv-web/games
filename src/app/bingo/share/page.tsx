@@ -3,7 +3,7 @@
 import { createBingoCard, updateBingoCard } from "@/utility/bingo/bingo_storage";
 import { previewCard } from "@/utility/bingo/navigation";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export default function Share(){
     const searchParams = useSearchParams()
