@@ -8,105 +8,102 @@ import { useEffect, useState } from "react"
 import styles from "./page.module.css"
 import Stack from "@mui/material/Stack"
 import { Edit, PlayCircle, Print, Refresh, Share } from "@mui/icons-material"
+import { getBingoCard } from "@/utility/bingo/bingo_storage"
 
 export default function Page(){
 
     const searchParams = useSearchParams()
     const [ error, setError ] = useState<string | null>(null);
+    const [ id, setId ] = useState("");
     const [ name, setName ] = useState("Bingo Board");
     const [ seed, setSeed ] = useState(0);
     const [ valuePool, setValuePool ] = useState<string[]>([]);
 
     useEffect( () => {
 
-        const name = searchParams.get("name");
-        if (name !== null && name !== ""){
-            setName(name);
-        } else {
-            setName("Unnamed Bingo Card")
+        const currentId = searchParams.get("card")
+        if (currentId === null || currentId === ""){
+            //Generate new id
+            window.location.href = "/bingo"
+            return;
         }
+        
+        setId(currentId);
 
-        const seed = searchParams.get("seed") ?? ""+(Math.random()*10000)
-        if (!Number.isNaN(parseInt(seed))){
-            setSeed(parseInt(seed))
-        } else {
-            let strVal = 0;
-            for (let i = 0; i < seed.length; i++){
-                strVal += seed.charCodeAt(i);
-            }
-            setSeed(strVal);
-        }
+        const card = getBingoCard(currentId)
 
-        const data = searchParams.get("data") ?? "";
-        let values = data.split("\n")
-        //Parse data
-        if (values.length < 24){
-            setError("Not enough values to fill board")
+        if (card !== null){
+            setName(card.name)
+            setValuePool(card.values)
         }
-        setValuePool(values)
+        
 
     }, [])
 
-    return <main>
+    return <ErrorRouter
+        error={error !== null}
+        errorMsg={error}
+    >
         <h1 className={styles.bingoTitle}>{name}</h1>
-        <ErrorRouter
-            error={error !== null}
-            errorMsg={error}
-        >
-            <div className={styles.bingoCard}>
+        <div className={styles.bingoCard}>
             <BingoCard
                 seed={seed}
                 values={valuePool}
             ></BingoCard>
-            </div>
+        </div>
+
+        {/* Action Buttons */}
+        <Stack direction="row" justifyContent="space-evenly" style={{ width: "80%", margin: "auto"}}>
+            <Button 
+                variant="contained"
+                className="no-print"
+                onClick={() => { 
+                    window.location.href = `/bingo/edit?card=${id}` 
+                }}
+            ><Edit />Edit</Button>
+
+            <Button 
+                variant="contained"
+                className="no-print"
+                onClick={() => {
+                    setSeed(Math.random())
+                }}  
+            ><Refresh />Regenerate</Button>
+
+            <Button 
+                variant="contained"
+                className="no-print"
+                onClick={() => {
+                    window.location.href = "/bingo/play"
+                }}
+            ><PlayCircle />Play</Button>
+
+            <Button 
+                variant="contained"
+                className="no-print"
+                onClick={() => {
+                    print();
+                }}
+            >
+            <Print />Print</Button>
+
+            <Button 
+                variant="contained"
+                className="no-print"
+                onClick={async () => {
 
 
-            <Stack direction="row" justifyContent="space-evenly" style={{ width: "80%", margin: "auto"}}>
-                <Button 
-                    variant="contained"
-                    className="no-print"
-                    onClick={() => { 
-                        window.location.href = "/bingo/create" 
-                    }}
-                ><Edit />Edit</Button>
+                    await navigator.clipboard.writeText(window.location.host + "/bingo/share?")
+                    alert("Link Copied")
+                }}
+            >
+            <Share />Share</Button>
+        </Stack>
 
-                <Button 
-                    variant="contained"
-                    className="no-print"
-                    onClick={() => {
-                        setSeed(Math.random())
-                    }}  
-                ><Refresh />Regenerate</Button>
+        <div className="no-print" style={{ marginTop: "20px" }}>
+            <h2 className="text-center">Possible Values:</h2>
+            {valuePool.map(value => <p className="text-center">{value}</p>)}
+        </div>
 
-                <Button 
-                    variant="contained"
-                    className="no-print"
-                    onClick={() => {
-                        window.location.href = "/bingo/play"
-                    }}
-                ><PlayCircle />Play</Button>
-
-                <Button 
-                    variant="contained"
-                    className="no-print"
-                    onClick={() => {
-                        print();
-                    }}
-                >
-                <Print />Print</Button>
-
-                <Button 
-                    variant="contained"
-                    className="no-print"
-                    onClick={async () => {
-
-                        await navigator.clipboard.writeText(window.location.toString())
-                        alert("Link Copied")
-                    }}
-                >
-                <Share />Share</Button>
-            </Stack>
-
-        </ErrorRouter>
-    </main>
+    </ErrorRouter>
 }
