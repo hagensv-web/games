@@ -9,6 +9,7 @@ import styles from "./page.module.css"
 import Stack from "@mui/material/Stack"
 import { Edit, PlayCircle, Print, Refresh, Share } from "@mui/icons-material"
 import { getBingoCard } from "@/utility/bingo/bingo_storage"
+import { editCard, shareCard } from "@/utility/bingo/navigation"
 
 export default function Page(){
 
@@ -58,7 +59,7 @@ export default function Page(){
                 variant="contained"
                 className="no-print"
                 onClick={() => { 
-                    window.location.href = `/bingo/edit?card=${id}` 
+                    window.location.href = editCard(id)
                 }}
             ><Edit />Edit</Button>
 
@@ -70,13 +71,13 @@ export default function Page(){
                 }}  
             ><Refresh />Regenerate</Button>
 
-            <Button 
+            {/* <Button 
                 variant="contained"
                 className="no-print"
                 onClick={() => {
                     window.location.href = "/bingo/play"
                 }}
-            ><PlayCircle />Play</Button>
+            ><PlayCircle />Play</Button> */}
 
             <Button 
                 variant="contained"
@@ -91,9 +92,7 @@ export default function Page(){
                 variant="contained"
                 className="no-print"
                 onClick={async () => {
-
-
-                    await navigator.clipboard.writeText(window.location.host + "/bingo/share?")
+                    await navigator.clipboard.writeText(window.location.host + shareCard(id))
                     alert("Link Copied")
                 }}
             >
@@ -102,7 +101,7 @@ export default function Page(){
 
         <div className="no-print" style={{ marginTop: "20px" }}>
             <h2 className="text-center">Possible Values:</h2>
-            {valuePool.map(value => <p className="text-center">{value}</p>)}
+            {valuePool.map( (value,idx) => <p key={idx} className="text-center">{value}</p>)}
         </div>
 
     </ErrorRouter>
