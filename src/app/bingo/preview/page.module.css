@@ -1,0 +1,21 @@
+.bingoTitle {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.bingoCard {
+    margin: 20px auto;
+    width: 75%;
+    aspect-ratio: 9/4;
+}
+
+@media print {
+    @page {
+        size: landscape;
+    }
+
+    .bingoCard {
+        width: 100%;
+        height: 100%;
+    }
+}
