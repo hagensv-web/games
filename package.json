@@ -9,14 +9,21 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "next": "16.0.8",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.7",
+    "@mui/material": "^7.3.7",
+    "bootstrap": "^5.3.8",
+    "next": "^16.0.10",
     "react": "19.2.1",
+    "react-bootstrap": "^2.10.10",
     "react-dom": "19.2.1"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.22",
     "eslint": "^9",
     "eslint-config-next": "16.0.8",
     "typescript": "^5"
