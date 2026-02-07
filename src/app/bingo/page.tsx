@@ -6,8 +6,17 @@ import { DeleteForever } from "@mui/icons-material";
 import { Paper } from "@mui/material";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import Link from "next/link";
+import { Metadata } from "next";
 import { useEffect, useState } from "react";
+
+
+export const metadata: Metadata = {
+  title: "Bingo Generator",
+  description: "Generate and share bingo cards",
+  other: {
+    "google-site-verification": "AEBD389WngD937lWHS-pgY5RbAaPOHABFRBWM84bm7g"
+  }
+};
 
 export default function Page(){
 
