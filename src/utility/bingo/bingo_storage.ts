@@ -1,8 +1,4 @@
-export type BingoCard = {
-    id: string
-    name: string
-    values: string[]
-}
+import { BingoCard } from "@/types/Bingo";
 
 export function createBingoCard(){
     const idSet = new Set<string>(getCardIds())

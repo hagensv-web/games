@@ -1,6 +1,7 @@
 'use client'
 
-import { BingoCard, createBingoCard, deleteBingoCard, getBingoCard, getCardIds } from "@/utility/bingo/bingo_storage";
+import { BingoCard } from "@/types/Bingo";
+import { createBingoCard, deleteBingoCard, getBingoCard, getCardIds } from "@/utility/bingo/bingo_storage";
 import { editCard, previewCard } from "@/utility/bingo/navigation";
 import { DeleteForever } from "@mui/icons-material";
 import { Paper } from "@mui/material";
