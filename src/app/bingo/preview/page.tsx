@@ -14,7 +14,6 @@ import { editCard, shareCard } from "@/utility/bingo/navigation"
 export default function Page(){
 
     const searchParams = useSearchParams()
-    const [ error, setError ] = useState<string | null>(null);
     const [ id, setId ] = useState("");
     const [ name, setName ] = useState("Bingo Board");
     const [ seed, setSeed ] = useState(0);
@@ -41,10 +40,8 @@ export default function Page(){
 
     }, [])
 
-    return <ErrorRouter
-        error={error !== null}
-        errorMsg={error}
-    >
+    return <div>
+        <p className="print-only">No. {seed}</p>
         <h1 className={styles.bingoTitle}>{name}</h1>
         <div className={styles.bingoCard}>
             <BingoCard
@@ -67,7 +64,7 @@ export default function Page(){
                 variant="contained"
                 className="no-print"
                 onClick={() => {
-                    setSeed(Math.random())
+                    setSeed(Math.floor((10**10)*Math.random()))
                 }}  
             ><Refresh />Regenerate</Button>
 
@@ -104,5 +101,5 @@ export default function Page(){
             {valuePool.map( (value,idx) => <p key={idx} className="text-center">{value}</p>)}
         </div>
 
-    </ErrorRouter>
+    </div>
 }
