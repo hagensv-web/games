@@ -64,26 +64,4 @@ export default function BingoCard({ values, seed }: Props){
             ))}
         </tbody>
     </table>
-
-    // return <table>
-    //     <thead>
-    //         <tr>
-    //             <th>B</th>
-    //             <th>I</th>
-    //             <th>N</th>
-    //             <th>G</th>
-    //             <th>O</th>
-    //         </tr>
-    //     </thead>
-    //     <tbody>
-    //         { arr.map( row => <tr key={row}>
-    //             { arr.map(col => <td key={col}>
-    //                 {getValue(row,col)}
-    //             </td>
-    //             )}
-    //         </tr>
-
-    //         )}
-    //     </tbody>
-    // </table>
 }
