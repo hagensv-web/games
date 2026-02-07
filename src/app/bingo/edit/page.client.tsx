@@ -126,10 +126,6 @@ export default function EditBingoPage(){
       <Button 
       variant="contained"
       onClick={() => {
-        const params = new URLSearchParams({
-          card: id,
-        })
-
         if (enteredValues.length < 24){
           return;
         }
