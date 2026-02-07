@@ -5,8 +5,15 @@ import { editCard, previewCard } from "@/utility/bingo/navigation";
 import { Delete } from "@mui/icons-material";
 import { IconButton, InputAdornment, OutlinedInput, TextField } from "@mui/material";
 import Button from "@mui/material/Button";
+import { Metadata } from "next";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+
+
+export const metadata: Metadata = {
+  title: "Bingo Editor",
+  description: "Make your own bingo card!"
+}
 
 export default function CreateBingo(){
 
