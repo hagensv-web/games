@@ -6,6 +6,9 @@ import { Suspense } from "react";
 export const metadata: Metadata = {
   title: "HagenSV Games",
   description: "A collection of web-based games to play offline",
+  other: {
+    "google-site-verification": "AEBD389WngD937lWHS-pgY5RbAaPOHABFRBWM84bm7g"
+  }
 };
 
 export default function RootLayout({
