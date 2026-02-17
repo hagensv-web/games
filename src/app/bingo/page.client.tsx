@@ -6,6 +6,9 @@ import { editCard } from "@/utility/bingo/navigation";
 import Button from "@mui/material/Button";
 import { useEffect, useState } from "react";
 import CardListing from "@/components/CardListing";
+import Spacer from "@/components/Spacer";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
 
 export default function BingoHome(){
 
@@ -27,11 +30,18 @@ export default function BingoHome(){
     }
 
 
-    return <main>
+    return <Box sx={{ margin: { xs: "0 5%", md: "0 10%" }}}>
     <h1>My Bingo Cards</h1>
     <Button variant="contained" onClick={() => window.location.href = editCard(createBingoCard())}>Create New Card</Button>
+    <Spacer height="20px" />
+
+    <Grid container spacing={4}>
     { cards.map( (card,idx) =>
-        <CardListing key={idx} deleteFunction={deleteCard} card={card} />
+        <Grid key={idx} size={{ xs: 12, md: 6 }}>
+            <CardListing deleteFunction={deleteCard} card={card} />
+        </Grid>
     )}
-    </main>
+    </Grid>
+
+    </Box>
 }
