@@ -1,3 +1,4 @@
+import { zlibCompress, zlibDecompress } from "../compress"
 import { getBingoCard } from "./bingo_storage"
 
 const basePath = "/games/bingo"
@@ -14,14 +15,18 @@ export function previewCard(id: string, seed: string = ""){
     return `${basePath}/preview?card=${id}`
 }
 
-export function shareCard(id: string, seed: string = ""){
+export function shareCard(id: string, seed: number = 0){
     const card = getBingoCard(id)
 
-    const searchParams = new URLSearchParams({
+    const shareData = {
         name: card?.name ?? "",
         values: (card?.values ?? []).join("\n"),
-        seed
-    })
+        seed: String(seed)
+    }
 
-    return `${basePath}/share?${searchParams.toString()}`
+    const searchParams = new URLSearchParams(shareData)
+
+    const compressedData = zlibCompress(searchParams.toString());
+
+    return `${basePath}/share?data=${compressedData}`
 }
