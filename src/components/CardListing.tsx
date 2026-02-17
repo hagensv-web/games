@@ -14,7 +14,7 @@ interface Props {
 }
 
 export default function CardListing({ card, deleteFunction }: Props){
-    return <Paper style={{ width: "33%", padding: 20, margin: 20}}>
+    return <Paper elevation={3} style={{ padding: 20, overflow: "hidden" }}>
             <h2>{card.name}</h2>
             <p style={{ fontSize: "8pt", margin: "none", color: "gray" }}>Hash: {crypto.createHash('sha256').update(card.values.join("\n")).digest('hex')}</p>
             <p>{card.values.length} values</p>
