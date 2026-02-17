@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,52683,o=>{"use strict";var t=o.i(71645),e=o.i(8358);function i(){(0,t.useEffect)(()=>{window.location.href=(0,e.bingoHome)()})}o.s(["default",()=>i])}]);

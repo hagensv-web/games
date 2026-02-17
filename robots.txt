@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hagensv-web.github.io/games/sitemap.xml
