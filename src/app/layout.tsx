@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Suspense } from "react";
+import Navigation from "@/components/Navigation";
 
 export const metadata: Metadata = {
   title: "HagenSV Games",
@@ -20,6 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Suspense>
+          <Navigation />
           {children}
         </Suspense>
       </body>
