@@ -9,6 +9,6 @@
   }
 
   .print-only {
-    display: initial
+    display: block
   }
 }
