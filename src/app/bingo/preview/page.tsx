@@ -1,7 +1,6 @@
 'use client'
 
 import BingoCard from "@/components/BingoCard"
-import ErrorRouter from "@/components/ErrorRouter"
 import Button from "@mui/material/Button"
 import { useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
@@ -10,6 +9,7 @@ import Stack from "@mui/material/Stack"
 import { Edit, PlayCircle, Print, Refresh, Share } from "@mui/icons-material"
 import { getBingoCard } from "@/utility/bingo/bingo_storage"
 import { editCard, shareCard } from "@/utility/bingo/navigation"
+import crypto from "crypto"
 
 export default function Page(){
 
@@ -41,7 +41,11 @@ export default function Page(){
     }, [])
 
     return <div>
-        <p className="print-only">No. {seed}</p>
+        <div className="print-only">
+            <p style={{ fontSize: "8pt", margin: 0 }}>Card {crypto.createHash('sha256').update(valuePool.join("\n")).digest('hex')}</p>
+            <p style={{ fontSize: "8pt", margin: 0 }}>No. {seed}</p>
+        </div>
+
         <h1 className={styles.bingoTitle}>{name}</h1>
         <div className={styles.bingoCard}>
             <BingoCard
