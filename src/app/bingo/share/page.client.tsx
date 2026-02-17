@@ -2,6 +2,7 @@
 
 import { createBingoCard, updateBingoCard } from "@/utility/bingo/bingo_storage";
 import { previewCard } from "@/utility/bingo/navigation";
+import { zlibDecompress } from "@/utility/compress";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
@@ -9,12 +10,16 @@ export default function Share(){
     const searchParams = useSearchParams()
 
     useEffect( () => {
-        const name = searchParams.get("name") ?? "";
+        const data = searchParams.get("data") ?? "";
 
-        const seed = searchParams.get("seed") ?? ""+(Math.random()*10000)
+        const decompress = zlibDecompress(data);
 
-        const data = searchParams.get("values") ?? "";
-        const values = data.split("\n")
+        const params = new URLSearchParams(decompress);
+        const json = Object.fromEntries(params.entries());
+
+        const name = json.name ?? "";
+        const values = json.values?.split("\n") ?? [];
+        const seed = json.seed ?? ""+(Math.random()*10000)
 
         const id = createBingoCard();
 
@@ -29,5 +34,5 @@ export default function Share(){
 
     }, [])
 
-    return <h1>Redirecting...</h1>
+    return <p>Redirecting...</p>
 }
