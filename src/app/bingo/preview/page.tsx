@@ -10,6 +10,7 @@ import { Edit, PlayCircle, Print, Refresh, Share } from "@mui/icons-material"
 import { getBingoCard } from "@/utility/bingo/bingo_storage"
 import { editCard, shareCard } from "@/utility/bingo/navigation"
 import crypto from "crypto"
+import Spacer from "@/components/Spacer"
 
 export default function Page(){
 
@@ -93,14 +94,16 @@ export default function Page(){
                 variant="contained"
                 className="no-print"
                 onClick={async () => {
-                    await navigator.clipboard.writeText(window.location.host + shareCard(id))
+                    await navigator.clipboard.writeText(window.location.host + shareCard(id,seed))
                     alert("Link Copied")
                 }}
             >
             <Share />Share</Button>
         </Stack>
 
-        <div className="no-print" style={{ marginTop: "20px" }}>
+        <Spacer height="20px" />
+
+        <div className="no-print">
             <h2 className="text-center">Possible Values:</h2>
             {valuePool.map( (value,idx) => <p key={idx} className="text-center">{value}</p>)}
         </div>
