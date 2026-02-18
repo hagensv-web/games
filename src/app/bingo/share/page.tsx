@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Share from "./page.client";
 
 export const metadata: Metadata = {
-  title: "Bingo",
+  title: "Bingo Generator",
   description: "Someone shared a bingo card with you!"
 }
 

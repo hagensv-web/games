@@ -3,7 +3,7 @@ import EditBingoPage from "./page.client"
 
 
 export const metadata: Metadata = {
-  title: "Bingo Editor",
+  title: "Bingo Card Editor",
   description: "Make your own bingo card!"
 }
 
