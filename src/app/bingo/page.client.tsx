@@ -31,17 +31,18 @@ export default function BingoHome(){
 
 
     return <Box sx={{ margin: { xs: "0 5%", md: "0 10%" }}}>
-    <h1>My Bingo Cards</h1>
-    <Button variant="contained" onClick={() => window.location.href = editCard(createBingoCard())}>Create New Card</Button>
-    <Spacer height="20px" />
+    <main>
+        <h1>My Bingo Cards</h1>
+        <Button variant="contained" onClick={() => window.location.href = editCard(createBingoCard())}>Create New Card</Button>
+        <Spacer height="20px" />
 
-    <Grid container spacing={4}>
-    { cards.map( (card,idx) =>
-        <Grid key={idx} size={{ xs: 12, md: 6 }}>
-            <CardListing deleteFunction={deleteCard} card={card} />
+        <Grid container spacing={4}>
+        { cards.map( (card,idx) =>
+            <Grid key={idx} size={{ xs: 12, md: 6 }}>
+                <CardListing deleteFunction={deleteCard} card={card} />
+            </Grid>
+        )}
         </Grid>
-    )}
-    </Grid>
-
+        </main>
     </Box>
 }

@@ -41,7 +41,7 @@ export default function Page(){
 
     }, [])
 
-    return <div>
+    return <main>
         <div className="print-only">
             <p style={{ fontSize: "8pt", margin: 0 }}>Card {crypto.createHash('sha256').update(valuePool.join("\n")).digest('hex')}</p>
             <p style={{ fontSize: "8pt", margin: 0 }}>No. {seed}</p>
@@ -108,5 +108,5 @@ export default function Page(){
             {valuePool.map( (value,idx) => <p key={idx} className="text-center">{value}</p>)}
         </div>
 
-    </div>
+    </main>
 }

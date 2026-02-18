@@ -4,7 +4,7 @@ import { BingoCard } from "@/types/Bingo";
 import { createBingoCard, getBingoCard, updateBingoCard } from "@/utility/bingo/bingo_storage";
 import { editCard, previewCard } from "@/utility/bingo/navigation";
 import { Delete } from "@mui/icons-material";
-import { IconButton, InputAdornment, OutlinedInput, TextField } from "@mui/material";
+import { Box, IconButton, InputAdornment, OutlinedInput, TextField } from "@mui/material";
 import Button from "@mui/material/Button";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -69,8 +69,9 @@ export default function EditBingoPage(){
 
     const enteredValues = values.filter(v => v.trim() !== "");
 
-    return <div style={{ maxWidth: 500, margin: "40px auto", fontFamily: "sans-serif" }}>
-      <h2>Bingo Card Generator</h2>
+    return <Box sx={{ margin: { xs: "0 5%", md: "0 10%" }}}>
+      <main>
+      <h1>Bingo Card Editor</h1>
 
       {/* Name Field */}
       <div style={{ marginBottom: 16 }}>
@@ -134,5 +135,6 @@ export default function EditBingoPage(){
       }}>
       Generate
       </Button>
-    </div>
+      </main>
+    </Box>
 }
