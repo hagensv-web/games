@@ -1,4 +1,4 @@
-import { zlibCompress, zlibDecompress } from "../compress"
+import { zlibCompress } from "../compress"
 import { getBingoCard } from "./bingo_storage"
 
 const basePath = "/games/bingo"
