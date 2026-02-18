@@ -1,3 +1,9 @@
+# *
 User-agent: *
 Allow: /
-Sitemap: https://hagensv-web.github.io/games/sitemap.xml
+
+# Host
+Host: https://hagensv.github.io/games
+
+# Sitemaps
+Sitemap: https://hagensv.github.io/games/sitemap.xml

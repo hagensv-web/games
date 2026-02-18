@@ -2,5 +2,5 @@
 2:I[25632,["/games/_next/static/chunks/8f89ccd8a20305d0.js","/games/_next/static/chunks/2f7b6969dcf622b4.js","/games/_next/static/chunks/479ed301d635317d.js","/games/_next/static/chunks/8f001a72c29523d7.js","/games/_next/static/chunks/295d483fd0fe7058.js","/games/_next/static/chunks/20d92ba51eff4ff2.js"],"default"]
 3:I[97367,["/games/_next/static/chunks/2f236954d6a65e12.js"],"OutletBoundary"]
 4:"$Sreact.suspense"
-0:{"buildId":"kH8qfkEKCXn14f7y8VwZg","rsc":["$","$1","c",{"children":[["$","$L2",null,{}],[["$","script","script-0",{"src":"/games/_next/static/chunks/295d483fd0fe7058.js","async":true}],["$","script","script-1",{"src":"/games/_next/static/chunks/20d92ba51eff4ff2.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"ai5IbS3oQFbq54-x5EEk-","rsc":["$","$1","c",{"children":[["$","$L2",null,{}],[["$","script","script-0",{"src":"/games/_next/static/chunks/295d483fd0fe7058.js","async":true}],["$","script","script-1",{"src":"/games/_next/static/chunks/20d92ba51eff4ff2.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
 5:null
