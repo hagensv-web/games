@@ -1,6 +1,6 @@
 'use client'
 
-import BingoCard from "@/components/BingoCard"
+import BingoCard from "@/components/bingo/BingoCard"
 import Button from "@mui/material/Button"
 import { useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
@@ -11,6 +11,8 @@ import { getBingoCard } from "@/utility/bingo/bingo_storage"
 import { editCard, shareCard } from "@/utility/bingo/navigation"
 import crypto from "crypto"
 import Spacer from "@/components/Spacer"
+import Box from "@mui/material/Box"
+import Grid from "@mui/material/Grid"
 
 export default function Page(){
 
@@ -42,36 +44,75 @@ export default function Page(){
     }, [])
 
     return <main>
+        <Box sx={{ margin: { xs: "0 5%", md: "0 10%" }}}>
         <div className="print-only">
             <p style={{ fontSize: "8pt", margin: 0 }}>Card {crypto.createHash('sha256').update(valuePool.join("\n")).digest('hex')}</p>
             <p style={{ fontSize: "8pt", margin: 0 }}>No. {seed}</p>
         </div>
 
         <h1 className={styles.bingoTitle}>{name}</h1>
-        <div className={styles.bingoCard}>
-            <BingoCard
-                seed={seed}
-                values={valuePool}
-            ></BingoCard>
-        </div>
+        <Box sx={{ width: "100%", overflowX: "scroll"}}>
+        <BingoCard
+            seed={seed}
+            values={valuePool}
+        ></BingoCard>
+        </Box>
+
+        <div className="no-print">
+        <Spacer height={"20px"} />
 
         {/* Action Buttons */}
-        <Stack direction="row" justifyContent="space-evenly" style={{ width: "80%", margin: "auto"}}>
-            <Button 
+        <Grid container spacing={1} direction={"row"}>
+            <Grid size={{ xs: 6, md: 3 }} display="flex" justifyContent="center">
+                <Button 
                 variant="contained"
-                className="no-print"
                 onClick={() => { 
                     window.location.href = editCard(id)
                 }}
             ><Edit />Edit</Button>
+            </Grid>
 
-            <Button 
+            <Grid size={{ xs: 6, md: 3 }} display="flex" justifyContent="center">
+                <Button 
                 variant="contained"
-                className="no-print"
                 onClick={() => {
                     setSeed(Math.floor((10**10)*Math.random()))
                 }}  
             ><Refresh />Regenerate</Button>
+            </Grid>
+
+            <Grid size={{ xs: 6, md: 3}} display="flex" justifyContent="center">
+            <Button 
+                variant="contained"
+                className="no-print"
+                onClick={() => {
+                    window.location.href = "/bingo/play"
+                }}
+            ><PlayCircle />Play</Button>
+            </Grid>
+
+            <Grid size={{ xs: 6, md: 3 }} display="flex" justifyContent="center">
+                <Button 
+                variant="contained"
+                onClick={() => {
+                    print();
+                }}
+            >
+            <Print />Print</Button>
+            </Grid>
+
+            <Grid size={{ xs: 6, md: 3 }} display="flex" justifyContent="center">
+                <Button 
+                variant="contained"
+                onClick={async () => {
+                    await navigator.clipboard.writeText(window.location.host + shareCard(id,seed))
+                    alert("Link Copied")
+                }}
+            >
+            <Share />Share</Button>
+            </Grid>
+        </Grid>
+        <Stack direction="row" justifyContent="space-evenly">
 
             {/* <Button 
                 variant="contained"
@@ -80,33 +121,15 @@ export default function Page(){
                     window.location.href = "/bingo/play"
                 }}
             ><PlayCircle />Play</Button> */}
-
-            <Button 
-                variant="contained"
-                className="no-print"
-                onClick={() => {
-                    print();
-                }}
-            >
-            <Print />Print</Button>
-
-            <Button 
-                variant="contained"
-                className="no-print"
-                onClick={async () => {
-                    await navigator.clipboard.writeText(window.location.host + shareCard(id,seed))
-                    alert("Link Copied")
-                }}
-            >
-            <Share />Share</Button>
         </Stack>
 
-        <Spacer height="20px" />
+        <Spacer height="40px" />
 
-        <div className="no-print">
-            <h2 className="text-center">Possible Values:</h2>
-            {valuePool.map( (value,idx) => <p key={idx} className="text-center">{value}</p>)}
+        <h2 className="text-center">Possible Values:</h2>
+        {valuePool.map( (value,idx) => <p key={idx} className="text-center">{value}</p>)}
+
         </div>
 
+        </Box>
     </main>
 }

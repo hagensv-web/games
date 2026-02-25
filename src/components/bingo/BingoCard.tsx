@@ -1,4 +1,5 @@
 import SeededRng from "@/types/SeededRng";
+import Box from "@mui/material/Box";
 import { CSSProperties } from "react";
 
 interface Props {
@@ -9,6 +10,7 @@ interface Props {
 const tableStyle: CSSProperties = {
     borderCollapse: "collapse",
     width: "100%",
+    minWidth: "600px",
     height: "100%",
     tableLayout: "fixed"
 }
@@ -20,11 +22,17 @@ const headerStyle: CSSProperties = {
     fontWeight: "bold",
 }
 
-const cellStyle: CSSProperties = {
+const cellContainer: CSSProperties = {
     border: "2px solid black",
+    padding: 0
+}
+
+const cellStyle: CSSProperties = {
+    padding: 5,
+    display: "flex",
     textAlign: "center",
-    verticalAlign: "middle",
-    aspectRatio: "1",
+    justifyContent: "center",
+    alignItems: "center",
 }
 
 export default function BingoCard({ values, seed }: Props){
@@ -59,9 +67,11 @@ export default function BingoCard({ values, seed }: Props){
                 {bingo.map((_,c) => (
                 <td
                     key={c}
-                    style={cellStyle}
+                    style={cellContainer}
                 >
+                    <Box style={cellStyle} sx={{ aspectRatio: { xs: 1.5, sm: 2 }}}>
                     {getValue(r,c)}
+                    </Box>
                 </td>
                 ))}
             </tr>
