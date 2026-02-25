@@ -2,14 +2,12 @@
 
 import * as React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
-import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import ListItem from '@mui/material/ListItem';
 import Toolbar from '@mui/material/Toolbar';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import AppBar from '@mui/material/AppBar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -35,7 +33,7 @@ export default function ResponsiveLayout() {
 
     return (
         <>
-        <AppBar position="static" className="no-print">
+        <AppBar position="sticky" className="no-print">
             <Toolbar>
             {/* Mobile Menu Icon */}
             <Box sx={{ display: { xs: 'flex', md: 'none' }}}>
