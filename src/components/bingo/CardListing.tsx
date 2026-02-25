@@ -1,5 +1,6 @@
+"use client"
+
 import { BingoCard } from "@/types/Bingo"
-import { deleteBingoCard } from "@/utility/bingo/bingo_storage"
 import { editCard, previewCard } from "@/utility/bingo/navigation"
 import DeleteForever from "@mui/icons-material/DeleteForever"
 import Button from "@mui/material/Button"
@@ -16,7 +17,7 @@ interface Props {
 export default function CardListing({ card, deleteFunction }: Props){
     return <Paper elevation={3} style={{ padding: 20, overflow: "hidden" }}>
             <h2>{card.name}</h2>
-            <p style={{ fontSize: "8pt", margin: "none", color: "gray" }}>Hash: {crypto.createHash('sha256').update(card.values.join("\n")).digest('hex')}</p>
+            <p style={{ fontSize: "8pt", margin: "none", color: "#666", wordWrap: "break-word" }}>Hash: {crypto.createHash('sha256').update(card.values.join("\n")).digest('hex')}</p>
             <p>{card.values.length} values</p>
             <Stack direction="row" justifyContent="space-evenly">
             <Button

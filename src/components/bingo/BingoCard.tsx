@@ -6,9 +6,14 @@ interface Props {
     seed: number
 }
 
+const tableStyle: CSSProperties = {
+    borderCollapse: "collapse",
+    width: "100%",
+    height: "100%",
+    tableLayout: "fixed"
+}
+
 const headerStyle: CSSProperties = {
-    width: 90,
-    height: 60,
     fontSize: "2rem",
     textAlign: "center",
     verticalAlign: "middle",
@@ -17,10 +22,9 @@ const headerStyle: CSSProperties = {
 
 const cellStyle: CSSProperties = {
     border: "2px solid black",
-    width: 120,
-    height: 60,
     textAlign: "center",
     verticalAlign: "middle",
+    aspectRatio: "1",
 }
 
 export default function BingoCard({ values, seed }: Props){
@@ -36,7 +40,7 @@ export default function BingoCard({ values, seed }: Props){
         return values2.splice(idx,1);
     }
 
-    return <table style={{ borderCollapse: "collapse", width: "100%", height: "100%" }}>
+    return <table style={tableStyle}>
         <thead>
             <tr style={{ border: "2px solid black"}}>
                 {bingo.map( (letter,idx) => (
