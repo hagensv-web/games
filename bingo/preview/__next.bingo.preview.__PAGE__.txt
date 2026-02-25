@@ -1,10 +1,10 @@
 1:"$Sreact.fragment"
 2:I[47257,["/games/_next/static/chunks/2f236954d6a65e12.js"],"ClientPageRoot"]
-3:I[35087,["/games/_next/static/chunks/e7dd06f3557fb8d4.js","/games/_next/static/chunks/2f7b6969dcf622b4.js","/games/_next/static/chunks/27815f7cfdd508d9.js","/games/_next/static/chunks/479ed301d635317d.js","/games/_next/static/chunks/143b4d9a299c0985.js","/games/_next/static/chunks/48641611211018d2.js"],"default"]
+3:I[35087,["/games/_next/static/chunks/33b01973d74b2c6f.js","/games/_next/static/chunks/2e00649f48eb89ed.js","/games/_next/static/chunks/2de6df3f166d8420.js","/games/_next/static/chunks/479ed301d635317d.js","/games/_next/static/chunks/2f7b6969dcf622b4.js","/games/_next/static/chunks/ea14be061cf627a1.js","/games/_next/static/chunks/7f32231438c8a116.js"],"default"]
 6:I[97367,["/games/_next/static/chunks/2f236954d6a65e12.js"],"OutletBoundary"]
 7:"$Sreact.suspense"
-:HL["/games/_next/static/chunks/1b470d6d11ea79e2.css","style"]
-0:{"buildId":"qph49LSBSNkodEJRm8GIt","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","link","0",{"rel":"stylesheet","href":"/games/_next/static/chunks/1b470d6d11ea79e2.css","precedence":"next"}],["$","script","script-0",{"src":"/games/_next/static/chunks/143b4d9a299c0985.js","async":true}],["$","script","script-1",{"src":"/games/_next/static/chunks/48641611211018d2.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
+:HL["/games/_next/static/chunks/1ff175ae2a725979.css","style"]
+0:{"buildId":"nBFBs0_-Jt2_P8midR0iq","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","link","0",{"rel":"stylesheet","href":"/games/_next/static/chunks/1ff175ae2a725979.css","precedence":"next"}],["$","script","script-0",{"src":"/games/_next/static/chunks/ea14be061cf627a1.js","async":true}],["$","script","script-1",{"src":"/games/_next/static/chunks/7f32231438c8a116.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
 4:{}
 5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
 8:null

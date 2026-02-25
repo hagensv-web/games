@@ -1,6 +1,6 @@
 1:"$Sreact.fragment"
-2:I[25632,["/games/_next/static/chunks/e7dd06f3557fb8d4.js","/games/_next/static/chunks/2f7b6969dcf622b4.js","/games/_next/static/chunks/27815f7cfdd508d9.js","/games/_next/static/chunks/479ed301d635317d.js","/games/_next/static/chunks/295d483fd0fe7058.js","/games/_next/static/chunks/7a14f9d0075de4bd.js"],"default"]
+2:I[25632,["/games/_next/static/chunks/33b01973d74b2c6f.js","/games/_next/static/chunks/2e00649f48eb89ed.js","/games/_next/static/chunks/2de6df3f166d8420.js","/games/_next/static/chunks/479ed301d635317d.js","/games/_next/static/chunks/2f7b6969dcf622b4.js","/games/_next/static/chunks/7a14f9d0075de4bd.js"],"default"]
 3:I[97367,["/games/_next/static/chunks/2f236954d6a65e12.js"],"OutletBoundary"]
 4:"$Sreact.suspense"
-0:{"buildId":"qph49LSBSNkodEJRm8GIt","rsc":["$","$1","c",{"children":[["$","$L2",null,{}],[["$","script","script-0",{"src":"/games/_next/static/chunks/295d483fd0fe7058.js","async":true}],["$","script","script-1",{"src":"/games/_next/static/chunks/7a14f9d0075de4bd.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"nBFBs0_-Jt2_P8midR0iq","rsc":["$","$1","c",{"children":[["$","$L2",null,{}],[["$","script","script-0",{"src":"/games/_next/static/chunks/7a14f9d0075de4bd.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
 5:null
