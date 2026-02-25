@@ -3,6 +3,7 @@ import "./globals.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Suspense } from "react";
 import Navigation from "@/components/Navigation";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 
 export const metadata: Metadata = {
   title: "HagenSV Games",
@@ -20,10 +21,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Suspense>
-          <Navigation />
-          {children}
-        </Suspense>
+        <AppRouterCacheProvider>
+        <Navigation />
+          <Suspense>
+            {children}
+          </Suspense>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );
