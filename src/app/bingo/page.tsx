@@ -1,9 +1,6 @@
 import { Metadata } from "next";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Spacer from "@/components/Spacer";
-import { editCard } from "@/utility/bingo/navigation";
-import { createBingoCard } from "@/utility/bingo/bingo_storage";
 import CardListingGrid from "@/components/bingo/CardListingGrid";
 
 
@@ -15,20 +12,19 @@ export const metadata: Metadata = {
 export default function Page() {
     return <Box sx={{ margin: { xs: "0 5%", md: "0 10%" }}}>
     <main>
-      <h1>My Bingo Cards</h1>
+      <h1>Custom Bingo Card Generator</h1>
       <section>
-        <p>Generate custom bingo cards instantly. Print them off or share them with a link. Perfect for classrooms, parties, virtual events.</p>
-        <p>No signup required. Your bingo card data is encoded directly in the URL, so anyone can open and play immediately.</p>
+        <p>Generate custom bingo cards instantly. Print them off or share them with a link. Perfect for classrooms, parties, or virtual events. No signup required.</p>
       </section>
-      {/* <Button variant="contained" onClick={() => window.location.href = editCard(createBingoCard())}>Create New Card</Button> */}
-      <Spacer height="20px" />
       <CardListingGrid />
-      <Spacer height="20px" />
+      <Spacer height="40px" style={{ borderBottom: "1px solid #606060" }}/>
       <h2>How to Create a Bingo Card</h2>
       <ol>
-        <li>Enter your custom words or phrases.</li>
-        <li>Generate your bingo card.</li>
-        <li>Share the link with friends or participants.</li>
+        <li>Click "Create New Card"</li>
+        <li>Enter at least 24 custom words or phrases.</li>
+        <li>Click "Generate"</li>
+        <li>Your bingo card will be generated with a random ordering of your entered phrases</li>
+        <li>Print or Share the link with friends or participants.</li>
       </ol>
 
       <h2>Use Cases:</h2>
