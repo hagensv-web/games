@@ -14,7 +14,7 @@ import Typography from '@mui/material/Typography';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 import { bingoHome } from '@/utility/bingo/navigation';
-import Spacer from './Spacer';
+import Spacer from '@/components/Spacer';
 
 const pages = [ 
     {

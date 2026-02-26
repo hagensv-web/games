@@ -1,5 +1,5 @@
-import { zlibCompress } from "../compress"
-import { getBingoCard } from "./bingo_storage"
+import { zlibCompress } from "@/utility/compress"
+import { getBingoCard } from "@/utility/bingo/bingo_storage"
 
 const basePath = "/games/bingo"
 
