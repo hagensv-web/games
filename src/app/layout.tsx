@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Suspense } from "react";
 import Navigation from "@/components/Navigation";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
