@@ -1,4 +1,5 @@
 import SeededRng from "@/types/SeededRng";
+import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { CSSProperties } from "react";
 
@@ -10,8 +11,6 @@ interface Props {
 const tableStyle: CSSProperties = {
     borderCollapse: "collapse",
     width: "100%",
-    minWidth: "600px",
-    height: "100%",
     tableLayout: "fixed"
 }
 
@@ -69,8 +68,10 @@ export default function BingoCard({ values, seed }: Props){
                     key={c}
                     style={cellContainer}
                 >
-                    <Box style={cellStyle} sx={{ aspectRatio: { xs: 1.5, sm: 2 }}}>
-                    {getValue(r,c)}
+                    <Box style={cellStyle} sx={{ aspectRatio: { xs: 1.5, sm: 2, md: 3 }}}>
+                        <Typography variant={"body1"} sx={{ fontSize: { xs: "0.5rem", sm: "0.8rem", md: "1.3rem" }}}>
+                        {getValue(r,c)}
+                        </Typography>
                     </Box>
                 </td>
                 ))}
