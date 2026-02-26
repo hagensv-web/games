@@ -5,7 +5,7 @@ import { BingoCard } from "@/types/Bingo";
 import { createBingoCard, getBingoCard, updateBingoCard } from "@/utility/bingo/bingo_storage";
 import { editCard, previewCard } from "@/utility/bingo/navigation";
 import { Delete } from "@mui/icons-material";
-import { Box, IconButton, InputAdornment, OutlinedInput, TextField } from "@mui/material";
+import { Box, IconButton, InputAdornment, OutlinedInput, TextField, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -76,9 +76,12 @@ export default function EditBingoPage(){
 
       {/* Name Field */}
       <div>
-        <label>Name</label>
+        <Typography variant="body1">
+          Card Title
+        </Typography>
         <OutlinedInput
           type="text"
+          id="name"
           value={name}
           onChange={e => setName(e.target.value)}
           placeholder="Enter card name"
@@ -90,7 +93,9 @@ export default function EditBingoPage(){
 
       {/* Values Fields */}
       <div>
-        <label>Possible Values</label>
+        <Typography variant="body1">
+          Possible Values
+        </Typography>
 
         {values.map((val, index) => (
           <div
@@ -104,6 +109,7 @@ export default function EditBingoPage(){
           >
             <OutlinedInput
               value={val}
+              id={`Value ${index + 1}`}
               onChange={(e) => handleValueChange(index, e.target.value)}
               placeholder={`Value ${index + 1}`}
               style={{ flex: 1 }}
