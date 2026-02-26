@@ -1,5 +1,6 @@
 'use client'
 
+import Spacer from "@/components/Spacer";
 import { BingoCard } from "@/types/Bingo";
 import { createBingoCard, getBingoCard, updateBingoCard } from "@/utility/bingo/bingo_storage";
 import { editCard, previewCard } from "@/utility/bingo/navigation";
@@ -74,16 +75,18 @@ export default function EditBingoPage(){
       <h1>Bingo Card Editor</h1>
 
       {/* Name Field */}
-      <div style={{ marginBottom: 16 }}>
+      <div>
         <label>Name</label>
-        <TextField
+        <OutlinedInput
           type="text"
           value={name}
           onChange={e => setName(e.target.value)}
           placeholder="Enter card name"
-          style={{ width: "100%", padding: 8, marginTop: 4 }}
+          style={{ width: "100%" }}
         />
       </div>
+
+      <Spacer height="20px" />
 
       {/* Values Fields */}
       <div>
