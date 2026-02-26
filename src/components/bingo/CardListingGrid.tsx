@@ -1,10 +1,13 @@
 "use client"
 
 import Grid from "@mui/material/Grid";
-import CardListing from "./CardListing";
+import CardListing from "@/components/bingo/CardListing";
 import { useEffect, useState } from "react";
 import { BingoCard } from "@/types/Bingo";
-import { deleteBingoCard, getBingoCard, getCardIds } from "@/utility/bingo/bingo_storage";
+import { createBingoCard, deleteBingoCard, getBingoCard, getCardIds } from "@/utility/bingo/bingo_storage";
+import Button from "@mui/material/Button";
+import { editCard } from "@/utility/bingo/navigation";
+import Spacer from "@/components/Spacer";
 
 export default function CardListingGrid(){
 
@@ -25,11 +28,15 @@ export default function CardListingGrid(){
         setCards(prev => prev.filter(c => c.id !== card.id))
     }
 
-    return <Grid container spacing={4}>
+    return <>
+    <Button variant="contained" onClick={() => window.location.href = editCard(createBingoCard())}>Create New Card</Button>
+    <Spacer height="20px" />
+    <Grid container spacing={4}>
         { cards.map( (card,idx) =>
             <Grid key={idx} size={{ xs: 12, md: 6 }}>
                 <CardListing deleteFunction={deleteCard} card={card} />
             </Grid>
         )}
     </Grid>
+    </>
 }
