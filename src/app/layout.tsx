@@ -4,6 +4,8 @@ import { Suspense } from "react";
 import Navigation from "@/components/Navigation";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { ThemeProvider } from "@mui/material/styles";
+import { theme } from "@/theme/mainTheme";
 
 export const metadata: Metadata = {
   title: "HagenSV Games",
@@ -25,10 +27,13 @@ export default function RootLayout({
       </head>
       <body>
         <AppRouterCacheProvider>
+        <ThemeProvider theme={theme}>
         <Navigation />
           <Suspense>
             {children}
           </Suspense>
+        {/* <Footer /> */}
+        </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
     </html>
