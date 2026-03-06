@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "next-sitemap && cp CNAME out/cname",
+    "postbuild": "next-sitemap && cp CNAME out/CNAME",
     "start": "next start",
     "lint": "eslint"
   },
