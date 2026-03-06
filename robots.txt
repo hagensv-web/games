@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://hagensv-web.github.io/games
+Host: https://custommade.games
 
 # Sitemaps
-Sitemap: https://hagensv-web.github.io/games/sitemap.xml
+Sitemap: https://custommade.games/sitemap.xml

@@ -1,9 +1,9 @@
 1:"$Sreact.fragment"
-2:I[47257,["/games/_next/static/chunks/2f236954d6a65e12.js"],"ClientPageRoot"]
-3:I[52683,["/games/_next/static/chunks/c77792297c1a0f7d.js","/games/_next/static/chunks/d98ff6c9d4b3d75f.js","/games/_next/static/chunks/59fc89b78ed89a57.js","/games/_next/static/chunks/479ed301d635317d.js","/games/_next/static/chunks/781f7a1da258ab82.js"],"default"]
-6:I[97367,["/games/_next/static/chunks/2f236954d6a65e12.js"],"OutletBoundary"]
+2:I[47257,["/_next/static/chunks/2f236954d6a65e12.js"],"ClientPageRoot"]
+3:I[52683,["/_next/static/chunks/c77792297c1a0f7d.js","/_next/static/chunks/d98ff6c9d4b3d75f.js","/_next/static/chunks/59fc89b78ed89a57.js","/_next/static/chunks/479ed301d635317d.js","/_next/static/chunks/781f7a1da258ab82.js"],"default"]
+6:I[97367,["/_next/static/chunks/2f236954d6a65e12.js"],"OutletBoundary"]
 7:"$Sreact.suspense"
-0:{"buildId":"YcOJMjw2FDe19cXK89_O3","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/games/_next/static/chunks/781f7a1da258ab82.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"s_BwztASDE24sZmfhB5VI","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/_next/static/chunks/781f7a1da258ab82.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
 4:{}
 5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
 8:null
