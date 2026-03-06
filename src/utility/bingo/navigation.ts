@@ -1,7 +1,7 @@
 import { zlibCompress } from "@/utility/compress"
 import { getBingoCard } from "@/utility/bingo/bingo_storage"
 
-const basePath = "/games/bingo"
+const basePath = "/bingo"
 
 export function bingoHome(){
     return `${basePath}`
