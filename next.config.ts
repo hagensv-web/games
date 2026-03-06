@@ -3,8 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   output: 'export',
-  basePath: '/games', // Replace with your GitHub repo name
-  assetPrefix: '/games',
+  basePath: '/', // Replace with your GitHub repo name
+  assetPrefix: '/',
   distDir: 'out'
 };
 

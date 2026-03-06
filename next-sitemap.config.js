@@ -1,5 +1,5 @@
 const config = {
-  siteUrl: 'https://hagensv-web.github.io/games',
+  siteUrl: 'https://custommade.games',
   generateRobotsTxt: true,
   outDir: 'out',
 }
