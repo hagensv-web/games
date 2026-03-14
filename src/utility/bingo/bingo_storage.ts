@@ -11,6 +11,12 @@ export function createBingoCard(){
     ids.push(id);
     updateBingoIds(ids);
 
+    updateBingoCard({
+        id,
+        name: "New Bingo Card",
+        values: []
+    })
+
     return id;
 }
 
