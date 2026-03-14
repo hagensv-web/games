@@ -15,6 +15,7 @@ import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 import { bingoHome } from '@/utility/bingo/navigation';
 import Spacer from '@/components/Spacer';
+import Link from 'next/link';
 
 const pages = [ 
     {
@@ -47,7 +48,9 @@ export default function ResponsiveLayout() {
             </Box>
 
             <Typography variant="h6" sx={{ mr: 5 }}>
-                Games
+                <Link href="/" style={{ textDecoration: "none" }}>
+                CustomMade Games
+                </Link>
             </Typography>
 
             {/* Desktop Navigation */}
@@ -69,6 +72,13 @@ export default function ResponsiveLayout() {
         >
             <Box sx={{ width: 250 }} role="presentation">
             <List>
+                <ListItem>
+                    <ListItemButton>
+                        <Typography variant="h6">
+                            CustomMade Games
+                        </Typography>
+                    </ListItemButton>
+                </ListItem>
                 {pages.map((item,idx) => (
                 <ListItem key={idx} disablePadding>
                     <ListItemButton onClick={() => navigate(item.route)}>
