@@ -12,7 +12,7 @@ export function editCard(id: string){
 }
 
 export function previewCard(id: string, seed: string = ""){
-    return `${basePath}/preview?card=${id}`
+    return `${basePath}/preview?card=${id}&seed=${seed}`
 }
 
 export function shareCard(id: string, seed: number = 0){
