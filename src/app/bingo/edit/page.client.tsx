@@ -1,7 +1,7 @@
 'use client'
 
 import Spacer from "@/components/Spacer";
-import { BingoCard } from "@/types/Bingo";
+import { BingoCardData } from "@/types/Bingo";
 import { createBingoCard, getBingoCard, updateBingoCard } from "@/utility/bingo/bingo_storage";
 import { editCard, previewCard } from "@/utility/bingo/navigation";
 import { Delete } from "@mui/icons-material";
@@ -43,7 +43,7 @@ export default function EditBingoPage(){
     useEffect( () => {
       if (!loaded) return;
 
-      const card: BingoCard = {
+      const card: BingoCardData = {
         id,
         name,
         values: values.filter( v => v.trim() !== "")

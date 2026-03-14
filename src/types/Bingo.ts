@@ -1,4 +1,4 @@
-export type BingoCard = {
+export type BingoCardData = {
     id: string,
     name: string,
     values: string[]

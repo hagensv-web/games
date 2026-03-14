@@ -1,4 +1,4 @@
-import { BingoCard } from "@/types/Bingo";
+import { BingoCardData } from "@/types/Bingo";
 import { zlibDecompress } from "../compress";
 
 export function createBingoCard(){
@@ -47,10 +47,10 @@ export function getBingoCard(cardId: string){
             values: []
         }
     }
-    return JSON.parse(storage) as BingoCard
+    return JSON.parse(storage) as BingoCardData
 }
 
-export function updateBingoCard(bingoCard: BingoCard){
+export function updateBingoCard(bingoCard: BingoCardData){
     localStorage.setItem("Bingo Card "+bingoCard.id,JSON.stringify(bingoCard))
 }
 
