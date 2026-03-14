@@ -1,5 +1,10 @@
 import Box from "@mui/material/Box"
+import { Metadata } from "next"
 import Link from "next/link"
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | CustomMade Games",
+}
 
 export default function PrivacyPage(){
     return (
