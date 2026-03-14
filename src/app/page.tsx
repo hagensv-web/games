@@ -1,15 +1,17 @@
-'use client'
-
-import { useEffect } from "react";
 import { bingoHome } from "@/utility/bingo/navigation";
 import Link from "next/link";
 import Box from "@mui/material/Box";
+import { Metadata } from "next";
+
+
+export const metadata: Metadata = {
+  description: "A collection of web-based games to play offline",
+  alternates: {
+    canonical: "/"
+  }
+}
 
 export default function Home() {
-
-  // useEffect( () => {
-  //   window.location.href = bingoHome()
-  // })
 
   return (
     <Box sx={{ margin: { xs: "0 5%", md: "0 10% "}}}>

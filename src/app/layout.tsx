@@ -15,7 +15,6 @@ export const metadata: Metadata = {
     template: "%s | CustomMade Games",
     default: "CustomMade Games"
   },
-  description: "A collection of web-based games to play offline",
   metadataBase: new URL("https://custommade.games"),
   other: {
     "google-site-verification": "AEBD389WngD937lWHS-pgY5RbAaPOHABFRBWM84bm7g"

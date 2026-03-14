@@ -3,8 +3,11 @@ import EditBingoPage from "./page.client"
 
 
 export const metadata: Metadata = {
-  title: "Bingo Card Editor",
-  description: "Make your own bingo card!"
+  title: "Custom Bingo Editor",
+  description: "Make your very own custom bingo card!",
+  alternates: {
+    canonical: "/bingo"
+  }
 }
 
 export default function Page(){
