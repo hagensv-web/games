@@ -61,15 +61,15 @@ function AppThemeProvider({ children }: { children: React.ReactNode }) {
     },
 
     components: {
-      MuiButton: {
-        styleOverrides: {
-          root: {
-            borderRadius: 10,
-            paddingLeft: 16,
-            paddingRight: 16,
-          },
-        },
-      },
+      // MuiButton: {
+      //   styleOverrides: {
+      //     root: {
+      //       borderRadius: 10,
+      //       paddingLeft: 16,
+      //       paddingRight: 16,
+      //     },
+      //   },
+      // },
 
       // MuiPaper: {
       //   styleOverrides: {
@@ -98,7 +98,8 @@ function AppThemeProvider({ children }: { children: React.ReactNode }) {
   });
 
   const theme = React.useMemo( () => 
-    getTheme(prefersDarkMode ? "dark" : "light")
+    // getTheme(prefersDarkMode ? "dark" : "light")
+    getTheme('light')
   , [prefersDarkMode])
 
   const theme2 = React.useMemo(() =>
