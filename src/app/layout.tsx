@@ -31,12 +31,25 @@ export default function RootLayout({
       <body>
         <AppRouterCacheProvider>
         <AppThemeProvider>
-        <Navigation />
-          <Suspense>
-            {children}
-          </Suspense>
-        <Box sx={{ height: "50px" }}></Box>
-        <Footer />
+          
+        <Box
+          sx={{
+            minHeight: "100vh",
+            display: "flex",
+            flexDirection: "column"
+          }}
+        >
+          <Navigation />
+
+          <Box component="main" sx={{ flex: 1 }}>
+            <Suspense>
+              {children}
+            </Suspense>
+          </Box>
+          <Box sx={{ height: "50px" }} />
+          <Footer />
+        </Box>
+          
         </AppThemeProvider>
         </AppRouterCacheProvider>
       </body>
