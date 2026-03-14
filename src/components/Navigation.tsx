@@ -75,7 +75,9 @@ export default function ResponsiveLayout() {
                 <ListItem>
                     <ListItemButton>
                         <Typography variant="h6">
+                            <Link href="/" style={{ textDecoration: "none" }}>
                             CustomMade Games
+                            </Link>
                         </Typography>
                     </ListItemButton>
                 </ListItem>
