@@ -16,21 +16,21 @@ export default function Footer(){
             <Spacer height="50px" />
             <Grid container>
                 <Grid size={"grow"}></Grid>
-                <Grid size={2} display="flex" justifyContent="center">
+                <Grid size={{ xs: 4, md: 2}} display="flex" justifyContent="center">
                     <Stack direction={"column"}>
-                    <Typography variant="h5">
+                    <Typography variant="h6">
                         Generators
                     </Typography>
-                    <Link href={"/bingo"}>Bingo Generator</Link>
+                    <Typography variant="body2"><Link href={"/bingo"}>Bingo</Link></Typography>
                     </Stack>
                 </Grid>
-                <Grid size={3} display="flex" justifyContent="center">
+                <Grid size={{ xs: 4, md: 3}} display="flex" justifyContent="center">
                     <Stack direction={"column"}>
-                    <Typography variant="h5">
+                    <Typography variant="h6">
                         Company
                     </Typography>
-                    <Link href={"/"}>About Us</Link>
-                    <Link href={"/company/privacy"}>Privacy</Link>
+                    <Typography variant="body2"><Link href={"/"}>About Us</Link></Typography>
+                    <Typography variant="body2"><Link href={"/company/privacy"}>Privacy</Link></Typography>
                     </Stack>
                 </Grid>
             </Grid>
