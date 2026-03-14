@@ -11,8 +11,12 @@ import AppThemeProvider from "@/components/AppThemeProvider";
 import Box from "@mui/material/Box";
 
 export const metadata: Metadata = {
-  title: "CustomMade Games",
+  title: {
+    template: "%s | CustomMade Games",
+    default: "CustomMade Games"
+  },
   description: "A collection of web-based games to play offline",
+  metadataBase: new URL("https://custommade.games"),
   other: {
     "google-site-verification": "AEBD389WngD937lWHS-pgY5RbAaPOHABFRBWM84bm7g"
   }
@@ -31,7 +35,7 @@ export default function RootLayout({
       <body>
         <AppRouterCacheProvider>
         <AppThemeProvider>
-          
+
         <Box
           sx={{
             minHeight: "100vh",
