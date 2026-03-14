@@ -46,7 +46,7 @@ export default function Page() {
       <p>Absolutely! You can generate and share as many bingo cards as you like! Every bingo card that you create gets saved so that you can come back and generate new variations any time.</p>
 
       <h3>Do I need an account?</h3>
-      <p>No, all of your bingo cards are stored your browser so you do not need an account to access them. When you share a bingo card with someone else, all of the data needed to create the bingo card is embedded in the link. Nothing gets sent to us.</p>
+      <p>No, all of your bingo cards are stored on your browser so you do not need an account to access them. When you share a bingo card with someone else, all of the data needed to create the bingo card is embedded in the link. Nothing gets sent to us.</p>
 
       <h3>How can I transfer my data?</h3>
       <p>Currently, the only way to transfer your data is to create individual share links for all of them on your new device/browser. We recognize that this is incredibly inconvenient and have an export feature in the works.</p>
