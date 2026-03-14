@@ -34,7 +34,11 @@ export default function Footer(){
                     </Stack>
                 </Grid>
             </Grid>
-            <Spacer height="100px" />
+            <Spacer height="80px" />
+            <Stack direction={"row"} justifyContent={"center"}>
+                <Typography variant="body1">© {new Date().getFullYear()} CustomMade Games</Typography>
+            </Stack>
+            <Spacer height="30px" />
         </Box>
     )
 }
