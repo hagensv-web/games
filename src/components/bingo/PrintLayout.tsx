@@ -19,7 +19,7 @@ export default function BingoPrintLayout({ card, seed, count }: Props){
         {cards.map( (val) =>
             <Box key={val} sx={{ pageBreakInside: "avoid", pageBreakBefore: val == 0 ? "avoid" : "always" }}>
                 <p style={{ fontSize: "8pt", margin: 0 }}>Card {crypto.createHash('sha256').update(card.values.join("\n")).digest('hex')}</p>
-                <p style={{ fontSize: "8pt", margin: 0 }}>No. {seed}</p>
+                <p style={{ fontSize: "8pt", margin: 0 }}>No. {seed+val}</p>
                 <h1 style={{ margin: 0, textAlign: "center" }}>{card.name}</h1>
                 <BingoCard 
                     values={card.values}
