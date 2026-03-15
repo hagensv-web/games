@@ -1,9 +1,9 @@
-"use client"
+'use client'
 
 import Grid from "@mui/material/Grid";
 import CardListing from "@/components/bingo/CardListing";
 import { useEffect, useState } from "react";
-import { BingoCard } from "@/types/Bingo";
+import { BingoCardData } from "@/types/Bingo";
 import { createBingoCard, deleteBingoCard, getBingoCard, getCardIds } from "@/utility/bingo/bingo_storage";
 import Button from "@mui/material/Button";
 import { editCard } from "@/utility/bingo/navigation";
@@ -11,7 +11,7 @@ import Spacer from "@/components/Spacer";
 
 export default function CardListingGrid(){
 
-    const [cards, setCards] = useState<BingoCard[]>([])
+    const [cards, setCards] = useState<BingoCardData[]>([])
     
     useEffect( () => {
         const games = getCardIds()
@@ -23,7 +23,7 @@ export default function CardListingGrid(){
 
     }, [])
 
-    const deleteCard = (card: BingoCard) => {
+    const deleteCard = (card: BingoCardData) => {
         deleteBingoCard(card.id)
         setCards(prev => prev.filter(c => c.id !== card.id))
     }
