@@ -1,5 +1,7 @@
 import { BingoCardData } from "@/types/Bingo";
-import { zlibDecompress } from "../compress";
+import { zlibCompress, zlibDecompress } from "../compress";
+
+const DEFAULT_NAME = "New Bingo Card"
 
 export function createBingoCard(){
     const idSet = new Set<string>(getCardIds())
@@ -13,7 +15,7 @@ export function createBingoCard(){
 
     updateBingoCard({
         id,
-        name: "New Bingo Card",
+        name: DEFAULT_NAME,
         values: []
     })
 
@@ -54,13 +56,26 @@ export function updateBingoCard(bingoCard: BingoCardData){
     localStorage.setItem("Bingo Card "+bingoCard.id,JSON.stringify(bingoCard))
 }
 
+export function exportBingoCard(cardId: string): string {
+    const card = getBingoCard(cardId)
+    const shareData = {
+        name: card?.name ?? "",
+        values: (card?.values ?? []).join("\n"),
+    }
+    const searchParams = new URLSearchParams(shareData)
+
+    const compressedData = zlibCompress(searchParams.toString());
+
+    return compressedData;
+}
+
 export function importBingoCard(data: string): string {
     const decompress = zlibDecompress(data);
 
     const params = new URLSearchParams(decompress);
     const json = Object.fromEntries(params.entries());
 
-    const name = json.name ?? "";
+    const name = json.name ?? DEFAULT_NAME;
     const values = json.values?.split("\n") ?? [];
 
     const id = createBingoCard();
