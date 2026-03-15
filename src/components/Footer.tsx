@@ -12,7 +12,7 @@ const backgroundSx: SxProps<Theme> = {
 
 export default function Footer(){
     return (
-        <Box sx={backgroundSx}>
+        <Box sx={backgroundSx} className="no-print">
             <Spacer height="50px" />
             <Grid container>
                 <Grid size={"grow"}></Grid>
