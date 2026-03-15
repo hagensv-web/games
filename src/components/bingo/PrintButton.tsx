@@ -36,12 +36,12 @@ export default function PrintButton({ onPrint }: Props) {
         <Print />Print
       </Button>
 
-      <Dialog open={open} onClose={() => setOpen(false)}>
+      <Dialog open={open} onClose={() => setOpen(false)} fullWidth maxWidth="xs">
         <DialogTitle>Print Bingo Cards</DialogTitle>
 
         <DialogContent>
           <TextField
-            label="Number of Cards"
+            label="Number of Randomized Cards"
             type="number"
             value={count}
             onChange={(e) => setCount(parseInt(e.target.value) || 1)}
