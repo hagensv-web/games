@@ -1,9 +1,13 @@
 'use client';
 
-import { Box, Grid, Stack, SxProps, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+
 import Link from "next/link";
 import Spacer from "@/components/Spacer";
-import { Theme } from "@mui/material/styles";
+import { SxProps, Theme } from "@mui/material/styles";
 
 const backgroundSx: SxProps<Theme> = {
     paddingX: { xs: "5%", md: "10%" },
