@@ -5,6 +5,7 @@ import { Metadata } from "next";
 
 
 export const metadata: Metadata = {
+  title: "Game Generators",
   description: "A collection of web-based games to play offline",
   alternates: {
     canonical: "/"
