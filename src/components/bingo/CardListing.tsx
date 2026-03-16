@@ -1,6 +1,6 @@
 "use client"
 
-import { BingoCard } from "@/types/Bingo"
+import { BingoCardData } from "@/types/Bingo"
 import { editCard, previewCard } from "@/utility/bingo/navigation"
 import DeleteForever from "@mui/icons-material/DeleteForever"
 import Button from "@mui/material/Button"
@@ -10,8 +10,8 @@ import Stack from "@mui/material/Stack"
 import crypto from "crypto"
 
 interface Props {
-    card: BingoCard
-    deleteFunction: (c: BingoCard) => void
+    card: BingoCardData
+    deleteFunction: (c: BingoCardData) => void
 }
 
 export default function CardListing({ card, deleteFunction }: Props){
