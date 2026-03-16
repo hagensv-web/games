@@ -39,6 +39,7 @@ export default function ResponsiveLayout() {
             {/* Mobile Menu Icon */}
             <Box sx={{ display: { xs: 'flex', md: 'none' }}}>
                 <IconButton
+                aria-label="Menu"
                 color="inherit"
                 edge="start"
                 onClick={() => setOpen(true)}
