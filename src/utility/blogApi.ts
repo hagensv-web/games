@@ -5,7 +5,7 @@ import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import rehypeStringify from 'rehype-stringify';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeAutolinkHeadings, { Options } from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
 
 const postsDirectory = path.join(process.cwd(), 'src/posts');
@@ -22,7 +22,7 @@ export async function getAllPosts() {
         .use(remarkParse)
         .use(remarkRehype)
         .use(rehypeSlug)
-        .use(rehypeAutolinkHeadings, { content: '🔗' })
+        .use(rehypeAutolinkHeadings, { })
         .use(rehypeStringify)
         .process(content);
       return {
@@ -44,9 +44,11 @@ export async function getPostById(id: string) {
     .use(remarkParse)
     .use(remarkRehype)
     .use(rehypeSlug)
-    .use(rehypeAutolinkHeadings, { content: '🔗' })
+    //.use(rehypeAutolinkHeadings, { content: '🔗' })
+    .use(rehypeAutolinkHeadings, { })
     .use(rehypeStringify)
     .process(content);
+
   return {
     id,
     title: data.title,
