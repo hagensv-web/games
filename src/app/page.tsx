@@ -4,6 +4,10 @@ import Box from "@mui/material/Box";
 import { Metadata } from "next";
 
 
+export const config = {
+  unstable_runtimeJS: false
+}
+
 export const metadata: Metadata = {
   description: "A collection of web-based games to play offline",
   alternates: {
