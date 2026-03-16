@@ -3,10 +3,7 @@ import Link from "next/link";
 import Box from "@mui/material/Box";
 import { Metadata } from "next";
 
-
-export const config = {
-  unstable_runtimeJS: false
-}
+export const unstable_runtimeJS = false;
 
 export const metadata: Metadata = {
   title: "Game Generators",
