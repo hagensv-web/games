@@ -3,8 +3,10 @@ import Link from "next/link";
 import Box from "@mui/material/Box";
 import { Metadata } from "next";
 
+export const unstable_runtimeJS = false;
 
 export const metadata: Metadata = {
+  title: "Game Generators",
   description: "A collection of web-based games to play offline",
   alternates: {
     canonical: "/"

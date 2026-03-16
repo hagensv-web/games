@@ -1,6 +1,6 @@
 'use client'
 
-import { createBingoCard, updateBingoCard } from "@/utility/bingo/bingo_storage";
+import { importBingoCard } from "@/utility/bingo/bingo_storage";
 import { previewCard } from "@/utility/bingo/navigation";
 import { zlibDecompress } from "@/utility/compress";
 import { useSearchParams } from "next/navigation";
@@ -11,23 +11,9 @@ export default function Share(){
 
     useEffect( () => {
         const data = searchParams.get("data") ?? "";
+        const seed = searchParams.get("seed") ?? ""+(Math.random()*10000);
 
-        const decompress = zlibDecompress(data);
-
-        const params = new URLSearchParams(decompress);
-        const json = Object.fromEntries(params.entries());
-
-        const name = json.name ?? "";
-        const values = json.values?.split("\n") ?? [];
-        const seed = json.seed ?? ""+(Math.random()*10000)
-
-        const id = createBingoCard();
-
-        updateBingoCard({
-            id,
-            name,
-            values
-        })
+        const id = importBingoCard(data);
 
         //redirect
         window.location.href = previewCard(id,seed)

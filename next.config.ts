@@ -5,7 +5,10 @@ const nextConfig: NextConfig = {
   output: 'export',
   basePath: '', // Replace with your GitHub repo name
   assetPrefix: '',
-  distDir: 'out'
+  distDir: 'out',
+  experimental: {
+    optimizePackageImports: ["@mui/material", "@mui/icons-material"],
+  },
 };
 
 export default nextConfig;
