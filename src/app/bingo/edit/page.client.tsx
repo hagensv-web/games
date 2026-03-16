@@ -5,7 +5,12 @@ import { BingoCardData } from "@/types/Bingo";
 import { createBingoCard, getBingoCard, updateBingoCard } from "@/utility/bingo/bingo_storage";
 import { editCard, previewCard } from "@/utility/bingo/navigation";
 import { Delete } from "@mui/icons-material";
-import { Box, IconButton, InputAdornment, OutlinedInput, TextField, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import InputAdornment from "@mui/material/InputAdornment";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import Typography from "@mui/material/Typography";
+
 import Button from "@mui/material/Button";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
