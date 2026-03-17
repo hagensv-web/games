@@ -51,8 +51,6 @@ export default function Page(){
     }, [])
 
     return <main>
-        <Box sx={{ margin: { xs: "0 5%", md: "0 10%" }}}>
-
         {card &&
             <BingoPrintLayout 
                 card={card}
@@ -108,14 +106,6 @@ export default function Page(){
                     setPrintCount(count);
                     setIsPrinting(true);
                 }} />
-                {/* <Button 
-                variant="contained"
-                sx={{ width: "100%" }}
-                onClick={() => {
-                    print();
-                }}
-            >
-            <Print />Print</Button> */}
             </Grid>
 
             <Grid size={{ xs: 6 }} display="flex" justifyContent="center">
@@ -137,9 +127,6 @@ export default function Page(){
         {card?.values.map( (value,idx) => <p key={idx} className="text-center">{value}</p>)}
 
         <Spacer height="20px" />
-
         </div>
-
-        </Box>
     </main>
 }

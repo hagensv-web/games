@@ -6,15 +6,14 @@ import CardListingGrid from "@/components/bingo/CardListingGrid";
 
 export const metadata: Metadata = {
   title: "Custom Bingo Generator",
-  description: "Generate and share custom bingo cards for free, no sign up required! Perfect for classroom vocabulary, road trips, holidy party games, and so much more.",
+  description: "Generate and share printable bingo cards for free, no sign up required! Perfect for classroom vocabulary, road trips, holidy party games, and so much more.",
   alternates: {
     canonical: "/bingo"
   }
 };
 
 export default function Page() {
-    return <Box sx={{ margin: { xs: "0 5%", md: "0 10%" }}}>
-    <main>
+    return <main>
       <h1>Custom Bingo Card Generator</h1>
       <section>
         <p>Generate custom bingo cards instantly. Print them off or share them with a link. Perfect for classrooms, parties, or virtual events. No signup required.</p>
@@ -51,5 +50,4 @@ export default function Page() {
       <h3>How can I transfer my data?</h3>
       <p>Currently, the only way to transfer your data is to create individual share links for all of them on your new device/browser. We recognize that this is incredibly inconvenient and have an export feature in the works.</p>
     </main>
-    </Box>
 }

@@ -75,8 +75,7 @@ export default function EditBingoPage(){
 
     const enteredValues = values.filter(v => v.trim() !== "");
 
-    return <Box sx={{ margin: { xs: "0 5%", md: "0 10%" }}}>
-      <main>
+    return <main>
       <h1>Bingo Card Editor</h1>
 
       {/* Name Field */}
@@ -139,16 +138,15 @@ export default function EditBingoPage(){
       </div>
 
       <Button 
-      variant="contained"
-      onClick={() => {
-        if (enteredValues.length < 24){
-          return;
-        }
+        variant="contained"
+        onClick={() => {
+          if (enteredValues.length < 24){
+            return;
+          }
 
-        window.location.href = previewCard(id)
-      }}>
-      Generate
+          window.location.href = previewCard(id)
+        }}>
+        Generate
       </Button>
-      </main>
-    </Box>
+    </main>
 }
