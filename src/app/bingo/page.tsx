@@ -6,7 +6,7 @@ import CardListingGrid from "@/components/bingo/CardListingGrid";
 
 export const metadata: Metadata = {
   title: "Custom Bingo Generator",
-  description: "Generate and share bingo cards for free, no sign up required!",
+  description: "Generate and share custom bingo cards for free, no sign up required! Perfect for classroom vocabulary, road trips, holidy party games, and so much more.",
   alternates: {
     canonical: "/bingo"
   }
