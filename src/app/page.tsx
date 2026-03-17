@@ -8,7 +8,7 @@ export const unstable_runtimeJS = false;
 
 export const metadata: Metadata = {
   title: "Game Generators",
-  description: "A collection of web-based games to play offline",
+  description: "CustomMade Games free online generators. Browse our collection of web based game generators. No signup required, ever.",
   alternates: {
     canonical: "/"
   }
