@@ -4,8 +4,6 @@ import { Suspense } from "react";
 import Navigation from "@/components/Navigation";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { ThemeProvider } from "@mui/material/styles";
-import { theme } from "@/theme/mainTheme";
 import Footer from "@/components/Footer";
 import AppThemeProvider from "@/components/AppThemeProvider";
 import Box from "@mui/material/Box";
