@@ -18,5 +18,5 @@ export function previewCard(id: string, seed: string = ""){
 export function shareCard(id: string, seed: number = 0){
     const data = exportBingoCard(id)
 
-    return `${basePath}/share?data=${data}&seed=${seed}`
+    return `${basePath}/share?data=${encodeURIComponent(data)}&seed=${seed}`
 }

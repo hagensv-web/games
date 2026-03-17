@@ -25,7 +25,7 @@ export default function Footer(){
                     <Typography variant="h6">
                         Generators
                     </Typography>
-                    <Typography variant="body2"><Link href={"/bingo"}>Bingo</Link></Typography>
+                    <Typography variant="body1"><Link href={"/bingo"}>Bingo</Link></Typography>
                     </Stack>
                 </Grid>
                 <Grid size={{ xs: 4, md: 3}} display="flex" justifyContent="center">
@@ -33,8 +33,8 @@ export default function Footer(){
                     <Typography variant="h6">
                         Company
                     </Typography>
-                    <Typography variant="body2"><Link href={"/"}>About Us</Link></Typography>
-                    <Typography variant="body2"><Link href={"/company/privacy"}>Privacy</Link></Typography>
+                    <Typography variant="body1"><Link href={"/"}>About Us</Link></Typography>
+                    <Typography variant="body1"><Link href={"/company/privacy"}>Privacy</Link></Typography>
                     </Stack>
                 </Grid>
             </Grid>

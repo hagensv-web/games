@@ -16,7 +16,7 @@ function AppThemeProvider({ children }: { children: React.ReactNode }) {
         //mode,
 
         primary: {
-            main: "#6366F1", // playful indigo
+            main: "#3949ab", // playful indigo
         },
 
         secondary: {
@@ -55,26 +55,28 @@ function AppThemeProvider({ children }: { children: React.ReactNode }) {
         },
 
         typography: {
-        fontFamily: `system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif`,
-        h1: { 
-            fontWeight: 700,
-            fontSize: "3em",
-            marginTop: "0.5em",
-            marginBottom: "0.5em"
-        },
-        h2: {
-            fontWeight: 700,
-            fontSize: "1.75em",
-            marginTop: "0.5em",
-            marginBottom: "0.5em"
-        },
-        h3: {
-            fontWeight: 600,
-            fontSize: "1.25em",
-            marginTop: "0.5em",
-            marginBottom: "0.5em"
-        },
-        button: { textTransform: "none", fontWeight: 600 },
+            h1: { 
+                fontWeight: 700,
+                fontSize: "2.5em",
+                marginTop: "1em",
+                marginBottom: "1em"
+            },
+            h2: {
+                fontWeight: 700,
+                fontSize: "1.75em",
+                marginTop: "0.75em",
+                marginBottom: "0.75em"
+            },
+            h3: {
+                fontWeight: 600,
+                fontSize: "1.25em",
+                marginTop: "0.5em",
+                marginBottom: "0.5em"
+            },
+            button: { 
+                textTransform: "none",
+                fontWeight: 600 
+            },
         },
 
         components: {
