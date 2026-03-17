@@ -16,7 +16,7 @@ function AppThemeProvider({ children }: { children: React.ReactNode }) {
         //mode,
 
         primary: {
-            main: "#6366F1", // playful indigo
+            main: "#3949ab", // playful indigo
         },
 
         secondary: {
