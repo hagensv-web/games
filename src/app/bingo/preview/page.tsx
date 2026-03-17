@@ -46,8 +46,7 @@ export default function Page(){
 
         if (card !== null){
             setCard(card)
-        }
-        
+        }        
 
     }, [])
 
