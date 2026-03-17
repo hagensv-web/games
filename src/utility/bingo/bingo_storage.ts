@@ -69,6 +69,24 @@ export function exportBingoCard(cardId: string): string {
     return compressedData;
 }
 
+export function getEncryptedBingoData(data: string): BingoCardData {
+    const decompress = zlibDecompress(data);
+
+    const params = new URLSearchParams(decompress);
+    const json = Object.fromEntries(params.entries());
+
+    const name = json.name ?? DEFAULT_NAME;
+    const values = json.values?.split("\n") ?? [];
+
+    const id = createBingoCard();
+
+    return {
+        id: "",
+        name,
+        values
+    }
+}
+
 export function importBingoCard(data: string): string {
     const decompress = zlibDecompress(data);
 
