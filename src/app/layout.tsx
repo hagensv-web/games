@@ -47,9 +47,11 @@ export default function RootLayout({
             <Grid container>
               <Grid size={{ xs: 0, md: 1 }}></Grid>
               <Grid size={{ xs: 12, md: 10 }}>
-                <Suspense>
-                  {children}
-                </Suspense>
+                <Box sx={{ marginX: { xs: "5%", md: 0 }}}>
+                  <Suspense>
+                    {children}
+                  </Suspense>
+                </Box>
               </Grid>
               <Grid size={{ xs: 0, md: 1 }}></Grid>
             </Grid>
