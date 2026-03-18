@@ -4,7 +4,7 @@ export type BingoCardData = {
     values: string[]
 }
 
-export type BingoGame = {
+export type BingoGameData = {
     id: string,
     card_id: string,
     card_seed: string,

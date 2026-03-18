@@ -7,6 +7,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import Footer from "@/components/Footer";
 import AppThemeProvider from "@/components/AppThemeProvider";
 import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
 
 export const metadata: Metadata = {
   title: {
@@ -43,9 +44,17 @@ export default function RootLayout({
           <Navigation />
 
           <Box component="main" sx={{ flex: 1 }}>
-            <Suspense>
-              {children}
-            </Suspense>
+            <Grid container>
+              <Grid size={{ xs: 0, md: 1 }}></Grid>
+              <Grid size={{ xs: 12, md: 10 }}>
+                <Box sx={{ marginX: { xs: "5%", md: 0 }}}>
+                  <Suspense>
+                    {children}
+                  </Suspense>
+                </Box>
+              </Grid>
+              <Grid size={{ xs: 0, md: 1 }}></Grid>
+            </Grid>
           </Box>
           <Box sx={{ height: "50px" }} />
           <Footer />

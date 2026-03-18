@@ -3,7 +3,28 @@ import { zlibCompress, zlibDecompress } from "../compress";
 
 const DEFAULT_NAME = "New Bingo Card"
 
+function migrateFormat(){
+    const formatStr = localStorage.getItem("/bingo/data_format") || "0"
+    let format = parseInt(formatStr);
+
+    if (format == 0){
+        const cards: string[] = JSON.parse(localStorage.getItem("Bingo Cards") || "[]")
+        localStorage.removeItem("Bingo Cards")
+        updateBingoIds(cards)
+        cards.forEach(element => {
+            const data = JSON.parse(localStorage.getItem("Bingo Card "+element) || "{}")
+            localStorage.removeItem("Bingo Card "+element)
+            updateBingoCard(data)
+        });
+        format = 1;
+    }
+
+    localStorage.setItem("/bingo/data_format", ""+(format));
+}
+
 export function createBingoCard(){
+    migrateFormat();
+
     const idSet = new Set<string>(getCardIds())
     let id = crypto.randomUUID()
     if (idSet.has(id)){
@@ -23,13 +44,17 @@ export function createBingoCard(){
 }
 
 export function deleteBingoCard(cardId: string){
-    localStorage.removeItem("Bingo Card "+cardId)
+    migrateFormat();
+
+    localStorage.removeItem("/bingo/cards/"+cardId)
     const cardIds = getCardIds().filter(id => id !== cardId);
     updateBingoIds(cardIds)
 }
 
 export function getCardIds(): string[] {
-    const storage = localStorage.getItem("Bingo Cards")
+    migrateFormat()
+
+    const storage = localStorage.getItem("/bingo/cards")
     if (storage === null){
         return []
     }
@@ -37,11 +62,13 @@ export function getCardIds(): string[] {
 }
 
 function updateBingoIds(ids: string[]){
-    localStorage.setItem("Bingo Cards", JSON.stringify(ids))
+    localStorage.setItem("/bingo/cards", JSON.stringify(ids))
 }
 
 export function getBingoCard(cardId: string){
-    const storage = localStorage.getItem("Bingo Card "+cardId)
+    migrateFormat()
+
+    const storage = localStorage.getItem("/bingo/cards/"+cardId)
     if (storage === null){
         return {
             id: cardId,
@@ -53,7 +80,7 @@ export function getBingoCard(cardId: string){
 }
 
 export function updateBingoCard(bingoCard: BingoCardData){
-    localStorage.setItem("Bingo Card "+bingoCard.id,JSON.stringify(bingoCard))
+    localStorage.setItem("/bingo/cards/"+bingoCard.id,JSON.stringify(bingoCard))
 }
 
 export function exportBingoCard(cardId: string): string {
@@ -67,6 +94,24 @@ export function exportBingoCard(cardId: string): string {
     const compressedData = zlibCompress(searchParams.toString());
 
     return compressedData;
+}
+
+export function getEncryptedBingoData(data: string): BingoCardData {
+    const decompress = zlibDecompress(data);
+
+    const params = new URLSearchParams(decompress);
+    const json = Object.fromEntries(params.entries());
+
+    const name = json.name ?? DEFAULT_NAME;
+    const values = json.values?.split("\n") ?? [];
+
+    const id = createBingoCard();
+
+    return {
+        id,
+        name,
+        values
+    }
 }
 
 export function importBingoCard(data: string): string {

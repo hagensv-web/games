@@ -9,7 +9,7 @@ export function zlibCompress(text: string) {
 }
 
 export function zlibDecompress(string: string) {
-    const compressed = Buffer.from(string, method);
+    const compressed = Buffer.from(string, method); 
     const decompressed = zlib.inflateSync(compressed);
     return decompressed.toString("utf-8");
 }

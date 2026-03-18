@@ -1,5 +1,4 @@
-import { zlibCompress } from "@/utility/compress"
-import { exportBingoCard, getBingoCard } from "@/utility/bingo/bingo_storage"
+import { exportBingoCard } from "@/utility/bingo/bingo_storage"
 
 const basePath = "/bingo"
 
@@ -17,6 +16,5 @@ export function previewCard(id: string, seed: string = ""){
 
 export function shareCard(id: string, seed: number = 0){
     const data = exportBingoCard(id)
-
     return `${basePath}/share?data=${encodeURIComponent(data)}&seed=${seed}`
 }
