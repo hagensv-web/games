@@ -5,7 +5,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import TextField from "@mui/material/TextField";
-import { Print } from "@mui/icons-material";
+import Print from "@mui/icons-material/Print";
 
 interface Props {
     onPrint: (count: number) => void
