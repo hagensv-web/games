@@ -13,7 +13,7 @@ import Grid from "@mui/material/Grid"
 import BingoPrintLayout from "@/components/bingo/PrintLayout"
 import { BingoCardData } from "@/types/Bingo"
 import PrintButton from "@/components/bingo/PrintButton"
-import PlayButton from "@/components/bingo/PlayButton"
+// import PlayButton from "@/components/bingo/PlayButton"
 
 export default function Page(){
 
