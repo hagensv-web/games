@@ -5,15 +5,15 @@ import Button from "@mui/material/Button"
 import { useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import styles from "./page.module.css"
-import { Edit, PlayCircle, Refresh, Share } from "@mui/icons-material"
+import { Edit, Refresh, Share } from "@mui/icons-material"
 import { getBingoCard } from "@/utility/bingo/bingo_storage"
 import { editCard, shareCard } from "@/utility/bingo/navigation"
 import Spacer from "@/components/Spacer"
-import Box from "@mui/material/Box"
 import Grid from "@mui/material/Grid"
 import BingoPrintLayout from "@/components/bingo/PrintLayout"
 import { BingoCardData } from "@/types/Bingo"
 import PrintButton from "@/components/bingo/PrintButton"
+import PlayButton from "@/components/bingo/PlayButton"
 
 export default function Page(){
 
@@ -64,7 +64,7 @@ export default function Page(){
         <BingoCard
             seed={seed}
             values={card?.values ?? []}
-        ></BingoCard>
+        />
 
         <Spacer height={"20px"} />
 
@@ -89,16 +89,9 @@ export default function Page(){
                 }}  
             ><Refresh />Regenerate</Button>
             </Grid>
-{/* 
-            <Grid size={{ xs: 4 }} display="flex" justifyContent="center">
-            <Button 
-                variant="contained"
-                className="no-print"
-                sx={{ width: "100%" }}
-                onClick={() => {
-                    window.location.href = "/bingo/play"
-                }}
-            ><PlayCircle />Play</Button>
+
+            {/* <Grid size={{ xs: 4 }} display="flex" justifyContent="center">
+                <PlayButton />
             </Grid> */}
 
             <Grid size={{ xs: 6 }} display="flex" justifyContent="center">
@@ -113,7 +106,9 @@ export default function Page(){
                 variant="contained"
                 sx={{ width: "100%" }}
                 onClick={async () => {
-                    await navigator.clipboard.writeText(window.location.host + shareCard(id,seed))
+                    await navigator.clipboard.writeText(
+                        `${window.location.protocol}//${window.location.host}${shareCard(id,seed)}`
+                    )
                     alert("Link Copied")
                 }}
             >
