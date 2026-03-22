@@ -6,7 +6,8 @@ export type BingoCardData = {
 
 export type BingoGameData = {
     id: string,
-    card_id: string,
-    card_seed: string,
+    name: string,
+    card: BingoCardData,
+    seed: number,
     highlighted: number[]
 }
