@@ -3,7 +3,7 @@ import { zlibCompress, zlibDecompress } from "../compress";
 
 const DEFAULT_NAME = "New Bingo Card"
 
-const CURRENT_FORMAT = 1;
+const CURRENT_FORMAT = 2;
 const CARD_DATA = "/bingo/cards/"
 const GAME_DATA = "/bingo/games/"
 
@@ -211,7 +211,7 @@ export function getBingoGameIds(): string[] {
  * @param ids the updated list of game ids
  */
 function updateBingoGameIds(ids: string[]){
-    localStorage.setItem("/bingo/games", JSON.stringify(ids))
+    localStorage.setItem(GAME_DATA, JSON.stringify(ids))
 }
 
 /**
