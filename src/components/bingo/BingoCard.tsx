@@ -1,13 +1,11 @@
 import SeededRng from "@/types/SeededRng";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { CSSProperties, useState } from "react";
+import { CSSProperties, useMemo, useState } from "react";
 import { BingoCardData } from "@/types/Bingo";
 
 interface Props {
-    rows: number
-    cols: number
-    card: BingoCardData
+    card: BingoCardData | null
     seed: number
 }
 
@@ -37,11 +35,36 @@ const cellStyle: CSSProperties = {
     alignItems: "center",
 }
 
-export default function BingoCard({ rows = 5, cols = 5, card, seed }: Props){
+export default function BingoCard({ card, seed }: Props){
     const [highlightedCells, setHighlightedCells] = useState(0)
+
+    const [ rowCount, colCount ] = [5, 5];
+    const rows = useMemo( () => Array.from({ length: rowCount }, (_, i) => i), [card]);
+    const cols = useMemo( () => Array.from({ length: colCount }, (_, i) => i), [card]);
+
+    const values = useMemo( () => {
+        if (!card){
+            return Array.from({ length: 25 }, () => "" )
+        }
+
+        const rng = new SeededRng(seed);
+        const pool = card.values.map(x => x)
+        const vals = []
+        for (let i = 0; i < rowCount*colCount; i++){
+            if (i % colCount == Math.floor(colCount / 2) &&
+                Math.floor(i / rowCount) == Math.floor(colCount / 2)
+            ){
+                vals.push(<strong>Free</strong>);
+                continue;
+            }
+
+            const nextIdx = rng.next(0, pool.length)
+            vals.push(...pool.splice(nextIdx,1))
+        }
+        return vals;
+    }, [card, seed] )
+    
     const bingo = ["B","I","N","G","O"];
-    const rng = new SeededRng(seed);
-    const values2 = card.values.map(x => x);
 
     function isHighlighted(cell: number){
         return highlightedCells % 2**(cell+1) >= 2**(cell);
@@ -56,11 +79,7 @@ export default function BingoCard({ rows = 5, cols = 5, card, seed }: Props){
     }
     
     function getValue(row: number, col: number){
-        if (row === 2 && col === 2){
-            return <strong>Free</strong>
-        }
-        const idx = rng.next(0,values2.length);
-        return values2.splice(idx,1);
+        return values[row*colCount + col]
     }
 
     return <table style={tableStyle}>
@@ -77,13 +96,15 @@ export default function BingoCard({ rows = 5, cols = 5, card, seed }: Props){
             </tr>
         </thead>
         <tbody>
-            {bingo.map((_,r) => (
+            {rows.map((r) => (
             <tr key={r}>
-                {bingo.map((_,c) => (
-                <td
+                {cols.map((c) => {
+                    const cellId = r*rowCount + c
+
+                return (<td
                     key={c}
-                    style={cellContainer}
-                    onClick={ () => toggleHighlightCell(r*rows+c) }
+                    style={{ ...cellContainer, background: (isHighlighted(cellId)) ? "#ffff0066" : "none" }}
+                    onClick={ () => toggleHighlightCell(cellId) }
                 >
                     <Box style={cellStyle} sx={{ aspectRatio: { xs: 1.5, sm: 2, md: 3 }}}>
                         <Typography variant={"body1"} sx={{ fontSize: { xs: "0.5rem", sm: "0.8rem", md: "1.3rem" }}}>
@@ -91,7 +112,7 @@ export default function BingoCard({ rows = 5, cols = 5, card, seed }: Props){
                         </Typography>
                     </Box>
                 </td>
-                ))}
+            )})}
             </tr>
             ))}
         </tbody>

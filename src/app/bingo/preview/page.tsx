@@ -63,8 +63,6 @@ export default function Page(){
         { card && <>
             <h1 className={styles.bingoTitle}>{card.name}</h1>
             <BingoCard
-                rows={5}
-                cols={5}
                 card={card}
                 seed={seed}
             ></BingoCard>

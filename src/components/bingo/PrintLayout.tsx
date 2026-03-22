@@ -22,8 +22,6 @@ export default function BingoPrintLayout({ card, seed, count }: Props){
                 <p style={{ fontSize: "8pt", margin: 0 }}>No. {seed+val}</p>
                 <h1 style={{ margin: 0, textAlign: "center" }}>{card.name}</h1>
                 <BingoCard 
-                    rows={5}
-                    cols={5}
                     card={card}
                     seed={seed+val}
                 />
