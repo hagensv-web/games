@@ -2,9 +2,10 @@ import SeededRng from "@/types/SeededRng";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { CSSProperties } from "react";
+import { BingoCardData } from "@/types/Bingo";
 
 interface Props {
-    values: string[]
+    card: BingoCardData
     seed: number
 }
 
@@ -34,12 +35,12 @@ const cellStyle: CSSProperties = {
     alignItems: "center",
 }
 
-export default function BingoCard({ values, seed }: Props){
+export default function BingoCard({ card, seed }: Props){
     const bingo = ["B","I","N","G","O"];
     const rng = new SeededRng(seed);
-    const values2 = values.map(x => x);
+    const values2 = card.values.map(x => x);
     
-    function getValue(row: Number, col: Number){
+    function getValue(row: number, col: number){
         if (row === 2 && col === 2){
             return <strong>Free</strong>
         }

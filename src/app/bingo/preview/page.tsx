@@ -60,11 +60,14 @@ export default function Page(){
         }
 
         <div className="no-print">
-        <h1 className={styles.bingoTitle}>{card?.name ?? "Bingo Card"}</h1>
-        <BingoCard
-            seed={seed}
-            values={card?.values ?? []}
-        ></BingoCard>
+        {card && <>
+            <h1 className={styles.bingoTitle}>{card.name}</h1>
+            <BingoCard
+                card={card}
+                seed={seed}
+            ></BingoCard>
+            </>
+        }
 
         <Spacer height={"20px"} />
 
@@ -89,17 +92,12 @@ export default function Page(){
                 }}  
             ><Refresh />Regenerate</Button>
             </Grid>
-{/* 
+
             <Grid size={{ xs: 4 }} display="flex" justifyContent="center">
-            <Button 
-                variant="contained"
-                className="no-print"
-                sx={{ width: "100%" }}
-                onClick={() => {
-                    window.location.href = "/bingo/play"
-                }}
-            ><PlayCircle />Play</Button>
-            </Grid> */}
+            <Button variant="contained" onClick={() => createBingoGame(card?.name,card,seed) } sx={{ width: "100%" }}>
+                <PlayCircle />Play
+            </Button>
+            </Grid>
 
             <Grid size={{ xs: 6 }} display="flex" justifyContent="center">
                 <PrintButton onPrint={(count) => {
