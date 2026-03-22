@@ -1,10 +1,12 @@
 import SeededRng from "@/types/SeededRng";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { CSSProperties } from "react";
+import { CSSProperties, useState } from "react";
 import { BingoCardData } from "@/types/Bingo";
 
 interface Props {
+    rows: number
+    cols: number
     card: BingoCardData
     seed: number
 }
@@ -35,10 +37,23 @@ const cellStyle: CSSProperties = {
     alignItems: "center",
 }
 
-export default function BingoCard({ card, seed }: Props){
+export default function BingoCard({ rows = 5, cols = 5, card, seed }: Props){
+    const [highlightedCells, setHighlightedCells] = useState(0)
     const bingo = ["B","I","N","G","O"];
     const rng = new SeededRng(seed);
     const values2 = card.values.map(x => x);
+
+    function isHighlighted(cell: number){
+        return highlightedCells % 2**(cell+1) >= 2**(cell);
+    }
+
+    function toggleHighlightCell(cell: number){
+        setHighlightedCells( 
+            cells => cells + (
+                2**(cell) * ( isHighlighted(cell) ? -1 : 1 )
+            )
+        );
+    }
     
     function getValue(row: number, col: number){
         if (row === 2 && col === 2){
@@ -68,6 +83,7 @@ export default function BingoCard({ card, seed }: Props){
                 <td
                     key={c}
                     style={cellContainer}
+                    onClick={ () => toggleHighlightCell(r*rows+c) }
                 >
                     <Box style={cellStyle} sx={{ aspectRatio: { xs: 1.5, sm: 2, md: 3 }}}>
                         <Typography variant={"body1"} sx={{ fontSize: { xs: "0.5rem", sm: "0.8rem", md: "1.3rem" }}}>

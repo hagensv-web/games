@@ -6,7 +6,7 @@ import { useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import styles from "./page.module.css"
 import { Edit, PlayCircle, Refresh, Share } from "@mui/icons-material"
-import { getBingoCard } from "@/utility/bingo/bingo_storage"
+import { createBingoGame, getBingoCard } from "@/utility/bingo/bingo_storage"
 import { editCard, shareCard } from "@/utility/bingo/navigation"
 import Spacer from "@/components/Spacer"
 import Box from "@mui/material/Box"
@@ -51,7 +51,7 @@ export default function Page(){
     }, [])
 
     return <main>
-        {card &&
+        { card &&
             <BingoPrintLayout 
                 card={card}
                 seed={seed}
@@ -60,9 +60,11 @@ export default function Page(){
         }
 
         <div className="no-print">
-        {card && <>
+        { card && <>
             <h1 className={styles.bingoTitle}>{card.name}</h1>
             <BingoCard
+                rows={5}
+                cols={5}
                 card={card}
                 seed={seed}
             ></BingoCard>
@@ -94,19 +96,19 @@ export default function Page(){
             </Grid>
 
             <Grid size={{ xs: 4 }} display="flex" justifyContent="center">
-            <Button variant="contained" onClick={() => createBingoGame(card?.name,card,seed) } sx={{ width: "100%" }}>
+            <Button variant="contained" onClick={() => { if (card) createBingoGame(card,seed) } }>
                 <PlayCircle />Play
             </Button>
             </Grid>
 
-            <Grid size={{ xs: 6 }} display="flex" justifyContent="center">
+            <Grid size={{ xs: 4 }} display="flex" justifyContent="center">
                 <PrintButton onPrint={(count) => {
                     setPrintCount(count);
                     setIsPrinting(true);
                 }} />
             </Grid>
 
-            <Grid size={{ xs: 6 }} display="flex" justifyContent="center">
+            <Grid size={{ xs: 4 }} display="flex" justifyContent="center">
                 <Button 
                 variant="contained"
                 sx={{ width: "100%" }}
