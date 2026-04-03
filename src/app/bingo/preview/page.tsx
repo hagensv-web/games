@@ -2,14 +2,13 @@
 
 import BingoCard from "@/components/bingo/BingoCard"
 import Button from "@mui/material/Button"
-import { useSearchParams } from "next/navigation"
+import { notFound, useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import styles from "./page.module.css"
 import { Edit, PlayCircle, Refresh, Share } from "@mui/icons-material"
 import { createBingoGame, getBingoCard } from "@/utility/bingo/bingo_storage"
-import { editCard, shareCard } from "@/utility/bingo/navigation"
+import { bingoHome, editCard, shareCard } from "@/utility/bingo/navigation"
 import Spacer from "@/components/Spacer"
-import Box from "@mui/material/Box"
 import Grid from "@mui/material/Grid"
 import BingoPrintLayout from "@/components/bingo/PrintLayout"
 import { BingoCardData } from "@/types/Bingo"
@@ -33,20 +32,18 @@ export default function Page(){
 
     useEffect( () => {
 
-        const currentId = searchParams.get("card")
+        const currentId = searchParams.get("card");
         if (currentId === null || currentId === ""){
-            //Generate new id
-            window.location.href = "/bingo"
+            window.location.href = bingoHome();
             return;
         }
         
         setId(currentId);
-
-        const card = getBingoCard(currentId)
-
-        if (card !== null){
-            setCard(card)
-        }        
+        const card = getBingoCard(currentId);
+        if (card == null){
+            notFound();
+        }
+        setCard(card);   
 
     }, [])
 
