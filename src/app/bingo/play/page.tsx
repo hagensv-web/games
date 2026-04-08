@@ -1,6 +1,6 @@
 import BingoCard from "@/components/bingo/BingoCard";
 import { BingoGameData } from "@/types/Bingo";
-import { getBingoGame } from "@/utility/bingo/bingo_storage";
+import { getBingoGame, updateBingoGame } from "@/utility/bingo/bingo_storage";
 import { notFound, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -22,12 +22,25 @@ export default function Play(){
         setGame(game);
     }, []);
 
+    function onInteract(cell: number) {
+        if (!game) return;
+
+        if (game.highlighted.includes(cell)){
+            game.highlighted.filter(x => x != cell)
+        } else {
+            game.highlighted.push(cell)
+        }
+
+        updateBingoGame(game)
+    }
+
     return <main>
         { game && <>
             <h1>{game.name}</h1>
             <BingoCard 
                 card={game.card}
                 seed={game.seed}
+                onInteract={onInteract}
             />
             </>
         }
