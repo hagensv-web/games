@@ -14,7 +14,6 @@ export const metadata: Metadata = {
 export default function PrivacyPage(){
     return (
         <Box sx={{ margin: { xs: "0 5%", md: "0 10% "}}}>
-            <main>
             <Typography variant="h1">Privacy Policy</Typography>
 
             <Typography variant="body1">Effective Date: 2026-3-14</Typography>
@@ -89,7 +88,6 @@ export default function PrivacyPage(){
             <Typography variant="body1">We may update this Privacy Policy from time to time to reflect changes in third party vendors.</Typography>
             
             <Typography variant="body1">If you have any questions about this Privacy Policy, you may contact us at: <Link href={"mailto:contact@custommade.games"}>contact@custommade.games</Link></Typography>
-            </main>
         </Box>
     )
 }

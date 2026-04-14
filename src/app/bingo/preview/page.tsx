@@ -50,7 +50,7 @@ export default function Page(){
 
     }, [])
 
-    return <main>
+    return <div>
         {card &&
             <BingoPrintLayout 
                 card={card}
@@ -123,5 +123,5 @@ export default function Page(){
 
         <Spacer height="20px" />
         </div>
-    </main>
+    </div>
 }
