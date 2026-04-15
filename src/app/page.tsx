@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function Home() {
 
   return (
-    <main>
+    <div>
       <Typography variant="h1">CustomMade Games</Typography>
         <Typography variant="h2">About</Typography>
         <Typography variant="body1">This website is a passion project for custom games/game generators. Our philosophy is that everything should work entirely offline, meaning all data stored on your device. We strive to collect as little data as possible. If everything is stored in your browser, there's no need for user accounts. It also has the added benefit of minimizing costs on our end, allowing us to keep our website completely free.</Typography>
@@ -25,6 +25,6 @@ export default function Home() {
         <Typography variant="h2">Games / Generators</Typography>
         <Typography variant="h3"><Link href={bingoHome()}>Bingo!</Link></Typography>
         <Typography variant="body1">Create your own custom bingo cards. Create a list of possible values and generate as many random cards as you want! You can print them or share with your friends.</Typography>
-    </main>
+    </div>
   )
 }
