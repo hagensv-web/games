@@ -8,41 +8,40 @@ import Typography from "@mui/material/Typography";
 import Link from "next/link";
 import Spacer from "@/components/Spacer";
 import { SxProps, Theme } from "@mui/material/styles";
+import FooterSection from "./FooterSection";
+import FooterLink from "./FooterLink";
 
 const backgroundSx: SxProps<Theme> = {
+    py: 4,
     paddingX: { xs: "5%", md: "10%" },
+    borderTop: "1px solid",
+    borderColor: (theme) => theme.palette.divider,
     background: (theme) => theme.palette.background.paper
 }
 
 export default function Footer(){
     return (
-        <Box sx={backgroundSx} className="no-print">
+        <Box component="footer" sx={backgroundSx} className="no-print">
             <Spacer height="50px" />
             <Grid container>
                 <Grid size={"grow"}></Grid>
                 <Grid size={{ xs: 4, md: 2}} display="flex" justifyContent="center">
-                    <Stack direction={"column"}>
-                    <Typography variant="h6">
-                        Generators
-                    </Typography>
-                    <Typography variant="body1"><Link href={"/bingo"}>Bingo</Link></Typography>
-                    </Stack>
+                    <FooterSection title="Generators">
+                        <FooterLink href="/bingo">Bingo</FooterLink>
+                    </FooterSection>
                 </Grid>
                 <Grid size={{ xs: 4, md: 3}} display="flex" justifyContent="center">
-                    <Stack direction={"column"}>
-                    <Typography variant="h6">
-                        Company
-                    </Typography>
-                    <Typography variant="body1"><Link href={"/"}>About Us</Link></Typography>
-                    <Typography variant="body1"><Link href={"/company/privacy"}>Privacy</Link></Typography>
-                    </Stack>
+                    <FooterSection title="Company">
+                        <FooterLink href="/">About</FooterLink>
+                        <FooterLink href="/company/privacy">Privacy Policy</FooterLink>
+                    </FooterSection>
                 </Grid>
             </Grid>
-            <Spacer height="80px" />
-            <Stack direction={"row"} justifyContent={"center"}>
-                <Typography variant="body1">© {new Date().getFullYear()} CustomMade Games</Typography>
-            </Stack>
-            <Spacer height="30px" />
+            <Box sx={{ mt: 6 }}>
+                <Typography variant="body2" color="text.secondary">
+                    © {new Date().getFullYear()} CustomMade Games
+                </Typography>
+            </Box>
         </Box>
     )
 }
