@@ -13,6 +13,7 @@ import Grid from "@mui/material/Grid"
 import BingoPrintLayout from "@/components/bingo/PrintLayout"
 import { BingoCardData } from "@/types/Bingo"
 import PrintButton from "@/components/bingo/PrintButton"
+// import PlayButton from "@/components/bingo/PlayButton"
 
 export default function Page(){
 
@@ -47,8 +48,8 @@ export default function Page(){
 
     }, [])
 
-    return <main>
-        { card &&
+    return <div>
+        {card &&
             <BingoPrintLayout 
                 card={card}
                 seed={seed}
@@ -108,7 +109,9 @@ export default function Page(){
                 variant="contained"
                 sx={{ width: "100%" }}
                 onClick={async () => {
-                    await navigator.clipboard.writeText(window.location.host + shareCard(id,seed))
+                    await navigator.clipboard.writeText(
+                        `${window.location.protocol}//${window.location.host}${shareCard(id,seed)}`
+                    )
                     alert("Link Copied")
                 }}
             >
@@ -123,5 +126,5 @@ export default function Page(){
 
         <Spacer height="20px" />
         </div>
-    </main>
+    </div>
 }

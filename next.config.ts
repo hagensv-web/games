@@ -6,9 +6,15 @@ const nextConfig: NextConfig = {
   basePath: '', // Replace with your GitHub repo name
   assetPrefix: '',
   distDir: 'out',
+  reactStrictMode: true,
   experimental: {
     optimizePackageImports: ["@mui/material", "@mui/icons-material"],
+    optimizeCss: true,
+    useLightningcss: true
   },
+  compiler: {
+    emotion: true
+  }
 };
 
 export default nextConfig;

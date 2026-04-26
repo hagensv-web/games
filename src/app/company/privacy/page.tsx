@@ -5,6 +5,7 @@ import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
+  description: "Privacy Policy for CustomMade Games. Learn how we use Google Analytics, display ads, and protect your privacy without collecting or storing personal data.",
   alternates: {
     canonical: "/company/privacy"
   }
@@ -13,7 +14,6 @@ export const metadata: Metadata = {
 export default function PrivacyPage(){
     return (
         <Box sx={{ margin: { xs: "0 5%", md: "0 10% "}}}>
-            <main>
             <Typography variant="h1">Privacy Policy</Typography>
 
             <Typography variant="body1">Effective Date: 2026-3-14</Typography>
@@ -51,9 +51,9 @@ export default function PrivacyPage(){
                 <li><Typography variant="body1">Device and browser information</Typography></li>
                 <li><Typography variant="body1">Usage and interaction data</Typography></li>
             </ul>
-            <Typography variant="body1">We do not access personally identifiable user profiles through Google Analytics</Typography>
-            <Typography variant="body1">Google may use this data in accordance with its own Privacy Policy: <Link href={"https://policies.google.com/privacy"}>https://policies.google.com/privacy</Link></Typography>
-            <Typography variant="body1">You can opt out of Google Analytics by visiting: <Link href={"https://tools.google.com/dlpage/gaoptout"}>https://tools.google.com/dlpage/gaoptout</Link></Typography>
+            <Typography variant="body1">We do not access personally identifiable user profiles through Google Analytics.</Typography>
+            <Typography variant="body1">Google may use this data in accordance with its own <Link href={"https://policies.google.com/privacy"}>Privacy Policy</Link>.</Typography>
+            <Typography variant="body1"><Link href={"https://tools.google.com/dlpage/gaoptout"}>Opt out of Google Analytics</Link></Typography>
 
             <Typography variant="h2">Advertising</Typography>
             <Typography variant="body1">We may display advertisements on our website through Google Ads (including Google AdSense), and/or other third-party advertising networks.</Typography>
@@ -64,10 +64,8 @@ export default function PrivacyPage(){
                 <li><Typography variant="body1">Personalize advertising content</Typography></li>
             </ul>
             <Typography variant="body1">We do not control how third-party advertising providers collect or use data. Their practices are governed by their respective privacy policies.</Typography>
-            <Typography variant="body1">You can learn more about Google's advertising practices here:</Typography>
-            <Typography variant="body1">https://policies.google.com/technologies/ads</Typography>
-            <Typography variant="body1">You may opt out of personalized advertising by visiting:</Typography>
-            <Typography variant="body1">https://www.google.com/settings/ads</Typography>
+            <Typography variant="body1"><Link href={"https://policies.google.com/technologies/ads"}>Learn more about Google's advertising practices</Link></Typography>
+            <Typography variant="body1"><Link href={"https://www.google.com/settings/ads"}>Opt out of personalized advertising</Link></Typography>
 
             <Typography variant="h2">Cookies</Typography>
             <Typography variant="body1">This website uses cookies primarily through third-party services for:</Typography>
@@ -90,7 +88,6 @@ export default function PrivacyPage(){
             <Typography variant="body1">We may update this Privacy Policy from time to time to reflect changes in third party vendors.</Typography>
             
             <Typography variant="body1">If you have any questions about this Privacy Policy, you may contact us at: <Link href={"mailto:contact@custommade.games"}>contact@custommade.games</Link></Typography>
-            </main>
         </Box>
     )
 }

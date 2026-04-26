@@ -74,7 +74,7 @@ export default function EditBingoPage(){
 
     const enteredValues = values.filter(v => v.trim() !== "");
 
-    return <main>
+    return <div>
       <h1>Bingo Card Editor</h1>
 
       {/* Name Field */}
@@ -147,5 +147,5 @@ export default function EditBingoPage(){
         }}>
         Generate
       </Button>
-    </main>
+    </div>
 }
