@@ -3,6 +3,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { CSSProperties, useMemo, useState } from "react";
 import { BingoCardData } from "@/types/Bingo";
+import styles from "@/components/bingo/BingoCardStyle.module.css";
 
 interface Props {
     card: BingoCardData | null
@@ -10,31 +11,6 @@ interface Props {
     onInteract?: (cell: number) => void
 }
 
-const tableStyle: CSSProperties = {
-    borderCollapse: "collapse",
-    width: "100%",
-    tableLayout: "fixed"
-}
-
-const headerStyle: CSSProperties = {
-    fontSize: "2rem",
-    textAlign: "center",
-    verticalAlign: "middle",
-    fontWeight: "bold",
-}
-
-const cellContainer: CSSProperties = {
-    border: "2px solid black",
-    padding: 0
-}
-
-const cellStyle: CSSProperties = {
-    padding: 5,
-    display: "flex",
-    textAlign: "center",
-    justifyContent: "center",
-    alignItems: "center",
-}
 
 export default function BingoCard({ card, seed, onInteract }: Props){
     const [ highlightedCells, setHighlightedCells ] = useState(0)
@@ -95,13 +71,13 @@ export default function BingoCard({ card, seed, onInteract }: Props){
         return values[row*colCount + col]
     }
 
-    return <table style={tableStyle}>
+    return <table className={styles.tableStyle}>
         <thead>
             <tr style={{ border: "2px solid black"}}>
                 {bingo.map( (letter,idx) => (
                     <th
                         key={idx}
-                        style={headerStyle}
+                        className={styles.headerStyle}
                     >
                         {letter}
                     </th>
@@ -115,14 +91,14 @@ export default function BingoCard({ card, seed, onInteract }: Props){
                     const cellId = r*rowCount + c
                     return (<td
                         key={c}
-                        style={{ ...cellContainer, background: (isHighlighted(cellId)) ? "#ffff0066" : "none" }}
+                        className={styles.cellContainer}
                         onClick={ () => cellClicked(cellId) }
                     >
-                        <Box style={cellStyle} sx={{ aspectRatio: { xs: 1.5, sm: 2, md: 3 }}}>
+                        <div className={styles.cellStyle}>
                             <Typography variant={"body1"} sx={{ fontSize: { xs: "0.5rem", sm: "0.8rem", md: "1.3rem" }}}>
                             {getValue(r,c)}
                             </Typography>
-                        </Box>
+                        </div>
                     </td>
                 )}
             )}

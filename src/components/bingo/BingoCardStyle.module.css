@@ -1,0 +1,50 @@
+.tableStyle {
+    border-collapse: "collapse";
+    width: "100%";
+    table-layout: "fixed";
+}
+
+.headerStyle {
+    font-size: "2rem";
+    text-align: "center";
+    vertical-align: "middle";
+    font-weight: "bold";
+}
+
+.cellContainer {
+    border: "2px solid black";
+    padding: 0
+}
+
+.cellStyle {
+    padding: 5;
+    display: "flex";
+    text-align: "center";
+    justify-content: "center";
+    align-items: "center";
+    aspect-ratio: 1.5;
+}
+
+/* Small */
+@media screen and (min-width: 600px){
+    .cellStyle {
+        aspect-ratio: 2;
+    }
+}
+
+/* Medium */
+@media screen and (min-width: 900px){
+    .cellStyle {
+        aspect-ratio: 3;
+    }
+}
+
+/* Large */
+@media screen and (min-width: 1200px){
+
+}
+
+/* Extra Large */
+@media screen and (min-width: 1536px){
+
+}
